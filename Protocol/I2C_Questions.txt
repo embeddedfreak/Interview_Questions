@@ -1,111 +1,154 @@
-I2C Interview Questions
-Basics
-What is I2C protocol?
-Why is I2C called a two-wire protocol?
-What are SDA and SCL lines?
-Difference between I2C and SPI?
-What is the role of pull-up resistors in I2C?
-Why are open-drain/open-collector outputs used in I2C?
-What are the standard I2C speed modes?
-What is the maximum number of devices supported on an I2C bus?
-Difference between master and slave in I2C?
-Can multiple masters exist on the same I2C bus?
-Addressing & Communication
-Explain 7-bit and 10-bit addressing.
-What is slave addressing?
-How does master select a slave?
-What is R/W bit in I2C?
-Explain I2C frame format.
-What is ACK and NACK?
-When is ACK generated?
-What happens if slave does not ACK?
-Explain START and STOP conditions.
-What is Repeated START condition?
-Timing & Signals
-Explain clock stretching.
-Why clock synchronization is required?
-What happens if two masters transmit simultaneously?
-Explain arbitration in I2C.
-How is data validity maintained in I2C?
-When should SDA change state?
-Why does SDA remain stable during SCL high?
-Embedded Software / Driver Questions
-How do you implement I2C communication in Linux?
-Have you worked on I2C device drivers?
-How does Linux I2C subsystem work?
-What are i2c_client and i2c_adapter structures?
-Difference between I2C driver and I2C device?
-What are ioctl calls used for in I2C?
-How do you access I2C devices from user space?
-Explain device tree entries for I2C devices.
-How do you debug I2C communication issues?
-How to scan I2C devices in Linux?
-What are i2cdetect, i2cget, and i2cset?
-How do interrupts work in I2C devices?
-Have you handled I2C register read/write sequences?
-Practical Debugging Questions
-What happens if SDA line is stuck low?
-How do you recover a hung I2C bus?
-What causes NACK issues?
-How do you debug missing ACK?
-What happens if pull-up resistors are not proper?
-Why can communication fail at higher speeds?
-How do you analyze I2C using logic analyzer?
-What parameters do you check in waveform debugging?
-What is bus capacitance issue?
-How do long PCB traces affect I2C?
-Scenario-Based Questions
-One slave is blocking the bus. How will you debug?
-System hangs during I2C transfer. What could be wrong?
-Sensor works at 100KHz but fails at 400KHz. Why?
-Multiple devices have same address. How do you solve it?
-How will you implement retry mechanism in I2C driver?
-How do you handle timeout in I2C communication?
-What happens if clock stretching is unsupported?
-How would you validate an I2C driver?
-How do you optimize I2C communication?
-How do DMA transfers work with I2C?
-Hardware + Protocol Deep Questions
-Why is arbitration non-destructive in I2C?
-Why are pull-ups external instead of internal?
-Why does I2C consume less pins than SPI?
-Why is I2C slower than SPI?
-Explain bus idle condition.
-What is setup and hold time in I2C?
-Explain repeated start vs stop-start.
-What is SMBus and difference from I2C?
-Explain Fast Mode Plus and High-Speed mode.
-What is multi-master synchronization?
-Coding/Implementation Questions
-Write pseudo code for I2C read transaction.
-Write Linux user-space I2C read/write code.
-Implement EEPROM read using I2C.
-How do you perform register burst read?
-How do you read sensor data via I2C?
-How would you design retry and timeout logic?
-How to write an I2C device tree node?
-How to add a new I2C client driver in Linux?
-Explain probe and remove functions in I2C driver.
-How to verify driver binding in Linux?
-Advanced Linux Driver Questions
-Explain regmap framework in Linux.
-What is difference between SMBus APIs and raw I2C APIs?
-Explain i2c_transfer().
-What are i2c_msg structures?
-How do combined messages work?
-How does repeated start happen in Linux APIs?
-Explain power management in I2C drivers.
-How do suspend/resume affect I2C devices?
-What are deferred probes?
-Explain hotplug behavior in I2C devices.
-Commonly Asked Practical Questions
-Have you interfaced sensors using I2C?
-Which devices generally use I2C?
-Have you debugged real hardware issues?
-Which tools have you used for I2C debugging?
-Have you used oscilloscope/logic analyzer?
-Explain one I2C issue you solved.
-What precautions are needed in board bring-up?
-Have you modified device tree for I2C devices?
-How do you verify device communication after boot?
-What is your experience with multimedia/display/sensor I2C devices?
+Here are common and important interview questions asked for an Embedded Software Engineer role on the **I2C protocol**, ranging from basics to driver/debugging level.
+
+---
+
+# I2C Interview Questions
+
+## Basics
+
+1. What is I2C protocol?
+2. Why is I2C called a two-wire protocol?
+3. What are SDA and SCL lines?
+4. Difference between I2C and SPI?
+5. What is the role of pull-up resistors in I2C?
+6. Why are open-drain/open-collector outputs used in I2C?
+7. What are the standard I2C speed modes?
+8. What is the maximum number of devices supported on an I2C bus?
+9. Difference between master and slave in I2C?
+10. Can multiple masters exist on the same I2C bus?
+
+---
+
+# Addressing & Communication
+
+11. Explain 7-bit and 10-bit addressing.
+12. What is slave addressing?
+13. How does master select a slave?
+14. What is R/W bit in I2C?
+15. Explain I2C frame format.
+16. What is ACK and NACK?
+17. When is ACK generated?
+18. What happens if slave does not ACK?
+19. Explain START and STOP conditions.
+20. What is Repeated START condition?
+
+---
+
+# Timing & Signals
+
+21. Explain clock stretching.
+22. Why clock synchronization is required?
+23. What happens if two masters transmit simultaneously?
+24. Explain arbitration in I2C.
+25. How is data validity maintained in I2C?
+26. When should SDA change state?
+27. Why does SDA remain stable during SCL high?
+
+---
+
+# Embedded Software / Driver Questions
+
+28. How do you implement I2C communication in Linux?
+29. Have you worked on I2C device drivers?
+30. How does Linux I2C subsystem work?
+31. What are i2c_client and i2c_adapter structures?
+32. Difference between I2C driver and I2C device?
+33. What are ioctl calls used for in I2C?
+34. How do you access I2C devices from user space?
+35. Explain device tree entries for I2C devices.
+36. How do you debug I2C communication issues?
+37. How to scan I2C devices in Linux?
+38. What are i2cdetect, i2cget, and i2cset?
+39. How do interrupts work in I2C devices?
+40. Have you handled I2C register read/write sequences?
+
+---
+
+# Practical Debugging Questions
+
+41. What happens if SDA line is stuck low?
+42. How do you recover a hung I2C bus?
+43. What causes NACK issues?
+44. How do you debug missing ACK?
+45. What happens if pull-up resistors are not proper?
+46. Why can communication fail at higher speeds?
+47. How do you analyze I2C using logic analyzer?
+48. What parameters do you check in waveform debugging?
+49. What is bus capacitance issue?
+50. How do long PCB traces affect I2C?
+
+---
+
+# Scenario-Based Questions
+
+51. One slave is blocking the bus. How will you debug?
+52. System hangs during I2C transfer. What could be wrong?
+53. Sensor works at 100KHz but fails at 400KHz. Why?
+54. Multiple devices have same address. How do you solve it?
+55. How will you implement retry mechanism in I2C driver?
+56. How do you handle timeout in I2C communication?
+57. What happens if clock stretching is unsupported?
+58. How would you validate an I2C driver?
+59. How do you optimize I2C communication?
+60. How do DMA transfers work with I2C?
+
+---
+
+# Hardware + Protocol Deep Questions
+
+61. Why is arbitration non-destructive in I2C?
+62. Why are pull-ups external instead of internal?
+63. Why does I2C consume less pins than SPI?
+64. Why is I2C slower than SPI?
+65. Explain bus idle condition.
+66. What is setup and hold time in I2C?
+67. Explain repeated start vs stop-start.
+68. What is SMBus and difference from I2C?
+69. Explain Fast Mode Plus and High-Speed mode.
+70. What is multi-master synchronization?
+
+---
+
+# Coding/Implementation Questions
+
+71. Write pseudo code for I2C read transaction.
+72. Write Linux user-space I2C read/write code.
+73. Implement EEPROM read using I2C.
+74. How do you perform register burst read?
+75. How do you read sensor data via I2C?
+76. How would you design retry and timeout logic?
+77. How to write an I2C device tree node?
+78. How to add a new I2C client driver in Linux?
+79. Explain probe and remove functions in I2C driver.
+80. How to verify driver binding in Linux?
+
+---
+
+# Advanced Linux Driver Questions
+
+81. Explain regmap framework in Linux.
+82. What is difference between SMBus APIs and raw I2C APIs?
+83. Explain i2c_transfer().
+84. What are i2c_msg structures?
+85. How do combined messages work?
+86. How does repeated start happen in Linux APIs?
+87. Explain power management in I2C drivers.
+88. How do suspend/resume affect I2C devices?
+89. What are deferred probes?
+90. Explain hotplug behavior in I2C devices.
+
+---
+
+# Commonly Asked Practical Questions
+
+91. Have you interfaced sensors using I2C?
+92. Which devices generally use I2C?
+93. Have you debugged real hardware issues?
+94. Which tools have you used for I2C debugging?
+95. Have you used oscilloscope/logic analyzer?
+96. Explain one I2C issue you solved.
+97. What precautions are needed in board bring-up?
+98. Have you modified device tree for I2C devices?
+99. How do you verify device communication after boot?
+100. What is your experience with multimedia/display/sensor I2C devices?
+
