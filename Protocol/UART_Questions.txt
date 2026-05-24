@@ -1,0 +1,164 @@
+===============================
+1. UART Fundamentals
+===============================
+
+1. What is UART?
+2. What does UART stand for?
+3. Why is UART called an asynchronous protocol?
+4. Difference between UART and USART?
+5. Difference between UART, SPI, and I2C?
+6. Explain UART communication architecture.
+7. What are TX and RX lines?
+8. What is full-duplex communication?
+9. What is half-duplex communication?
+10. What is simplex communication?
+
+===============================
+2. UART Frame / Protocol Format
+===============================
+
+11. Explain UART frame format.
+12. What is a start bit?
+13. What is a stop bit?
+14. Why is the start bit required?
+15. Why are stop bits required?
+16. What is parity in UART?
+17. Types of parity bits?
+18. Difference between odd and even parity.
+19. What is data length in UART?
+20. Explain 8N1 UART configuration.
+
+===============================
+3. Baud Rate / Timing
+===============================
+
+21. What is baud rate?
+22. Difference between baud rate and bit rate.
+23. How is UART baud rate generated?
+24. What happens if baud rates mismatch?
+25. Allowed baud rate tolerance in UART?
+26. Common UART baud rates.
+27. Explain oversampling in UART.
+28. Why do UART peripherals use 16x oversampling?
+29. How do you calculate UART divisor values?
+30. How do clock sources affect UART timing?
+
+===============================
+4. UART Hardware Concepts
+===============================
+
+31. Explain UART transmitter block diagram.
+32. Explain UART receiver block diagram.
+33. What are UART shift registers?
+34. What is UART FIFO?
+35. Difference between shift register and FIFO.
+36. What is TX FIFO?
+37. What is RX FIFO?
+38. Advantages of FIFO buffering.
+39. What is FIFO trigger level?
+40. Why are UART status registers important?
+
+===============================
+5. UART Modes / Communication Methods
+===============================
+
+41. Polling vs interrupt UART communication.
+42. Polling UART advantages/disadvantages.
+43. Interrupt UART advantages/disadvantages.
+44. DMA UART advantages/disadvantages.
+45. When should UART DMA be used?
+46. Explain UART blocking communication.
+47. Explain UART non-blocking communication.
+48. How does asynchronous UART API work?
+49. Explain UART event-driven communication.
+50. How do callback-based UART drivers work?
+
+===============================
+6. Embedded C / Bare-Metal UART
+===============================
+
+51. How do you initialize UART in bare-metal systems?
+52. Explain UART register configuration.
+53. Important UART control registers.
+54. How do you transmit data using UART registers?
+55. How do you receive data using UART registers?
+56. How would you implement UART polling code?
+57. How would you implement UART interrupt handling?
+58. How do you implement UART ring buffer?
+59. Circular buffer vs linear buffer.
+60. How do you avoid UART RX data loss?
+
+===============================
+7. Interrupt Handling / DMA
+===============================
+
+61. Explain UART interrupt types.
+62. What is TX complete interrupt?
+63. What is RX complete interrupt?
+64. What is UART timeout interrupt?
+65. What is UART error interrupt?
+66. Explain UART DMA transfer flow.
+67. DMA vs interrupt performance comparison.
+68. How do you debug missing UART interrupts?
+69. How do you prevent ISR latency issues?
+70. How do you handle high-speed UART reception?
+
+===============================
+8. UART Error Handling
+===============================
+
+71. What is parity error?
+72. What is framing error?
+73. What is overrun error?
+74. What is break condition in UART?
+75. Causes of UART framing errors.
+76. Causes of UART overruns.
+77. How do you detect UART communication errors?
+78. How do you recover from UART errors?
+79. How do you debug corrupted UART data?
+80. Why do garbage characters appear?
+
+===============================
+9. Hardware / Electrical Layer
+===============================
+
+81. UART TTL vs RS232.
+82. UART TTL vs RS485.
+83. Explain RS232 voltage levels.
+84. Explain RS485 differential signaling.
+85. When would you use RS485 instead of UART TTL?
+86. Why are level shifters needed?
+87. What is MAX232?
+88. Explain UART grounding issues.
+89. How does cable length affect UART?
+90. UART noise immunity techniques.
+
+===============================
+10. Linux UART / Embedded Linux
+===============================
+
+91. Explain Linux UART driver architecture.
+92. Explain Linux serial core subsystem.
+93. What is Linux TTY subsystem?
+94. What is tty_driver?
+95. What is uart_driver?
+96. Explain uart_port.
+97. Explain uart_ops.
+98. How do Linux UART interrupts work?
+99. How do you configure UART using Device Tree?
+100. How do you debug UART issues in Embedded Linux?
+
+===============================
+Bonus: Senior-Level Scenario Questions
+===============================
+
+101. UART works at 9600 but fails at 115200. How would you debug?
+102. Bootloader UART works but Linux UART fails. Why?
+103. RX interrupt fires randomly. Possible causes?
+104. How would you design a robust UART packet protocol?
+105. How would you implement CRC-based UART communication?
+106. How do you support multi-packet UART parsing?
+107. How would you debug field UART failures remotely?
+108. How would you benchmark UART throughput?
+109. How do you optimize high-speed logging over UART?
+110. Explain a real UART issue you solved during board bring-up.
