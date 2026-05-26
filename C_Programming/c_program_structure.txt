@@ -1,0 +1,842 @@
+```txt
+PROGRAM:
+
+#include <stdio.h>
+
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}
+
+COMPLETE TOKEN-BY-TOKEN EXPLANATION
+
+1. #
+
+#include <stdio.h>
+^
+
+# is the preprocessor directive symbol in C.
+
+It tells the C Preprocessor:
+
+"Process this instruction before actual compilation starts."
+
+The preprocessor runs before the compiler.
+
+Examples:
+
+#include
+#define
+#ifdef
+#ifndef
+
+
+2. include
+
+#include <stdio.h>
+ ^^^^^^^
+
+include tells the preprocessor:
+
+"Copy the contents of another file into this file."
+
+Think of it like:
+
+Paste the file contents here before compilation.
+
+Without it:
+
+printf();
+
+would be unknown to the compiler.
+
+
+3. < >
+
+#include <stdio.h>
+         ^       ^
+
+Angle brackets mean:
+
+Search for the header in system/compiler standard directories.
+
+Used for standard libraries.
+
+Examples:
+
+<stdio.h>
+<stdlib.h>
+<string.h>
+
+Difference from " " :
+
+#include "myfile.h"
+
+Double quotes mean:
+
+1. Search current directory first
+2. Then search system paths
+
+
+4. stdio.h
+
+#include <stdio.h>
+          ^^^^^^^
+
+Breakdown:
+
+std  = Standard library
+io   = Input / Output
+.h   = Header file
+
+So:
+
+stdio.h = Standard Input Output Header
+
+Contains declarations for:
+
+printf()
+scanf()
+fprintf()
+fgets()
+FILE
+stderr
+stdout
+stdin
+
+
+5. int
+
+int main()
+^^^
+
+int is a data type.
+
+Here it means:
+
+main returns an integer value.
+
+Return type = integer.
+
+
+6. main
+
+int main()
+    ^^^^
+
+main is the program entry function.
+
+Execution begins here.
+
+The Operating System calls:
+
+main()
+
+when your executable starts.
+
+
+7. ( )
+
+main()
+    ^^
+
+Parentheses indicate:
+
+Function parameter list.
+
+Empty:
+
+()
+
+means no parameters (loosely in C).
+
+More explicit/recommended form:
+
+int main(void)
+
+
+8. { }
+
+{
+}
+
+Curly braces define a block scope.
+
+They group statements together.
+
+Everything inside belongs to main.
+
+
+9. printf
+
+printf("Hello World");
+
+printf = print formatted
+
+Declared inside:
+
+<stdio.h>
+
+Used for console output.
+
+
+10. (
+
+printf(
+
+Starts function arguments.
+
+
+11. "Hello World"
+
+"Hello World"
+
+String literal.
+
+Compiler stores it in memory.
+
+Actually becomes:
+
+H e l l o   W o r l d \0
+
+\0 = null terminator.
+
+
+12. ;
+
+printf("Hello World");
+                     ^
+
+Semicolon = statement terminator.
+
+Marks:
+
+"Instruction ends here."
+
+
+13. return
+
+return 0;
+
+Returns a value from the function.
+
+Control goes back to the Operating System.
+
+
+14. 0
+
+return 0;
+       ^
+
+Exit status.
+
+Convention:
+
+0        -> success
+non-zero -> error/failure
+
+Example:
+
+return 1;
+
+indicates failure.
+
+
+15. COMPLETE COMPILATION FLOW
+
+Compilation stages:
+
+1. Preprocessing
+2. Compilation
+3. Assembly
+4. Linking
+5. Execution
+
+Stage 1: Preprocessing
+
+Processes directives such as:
+
+#include <stdio.h>
+
+The header file contents are pasted into the source file.
+
+Stage 2: Compilation
+
+C source code → Assembly code
+
+Stage 3: Assembly
+
+Assembly code → Object file
+
+Stage 4: Linking
+
+Libraries and object files are connected.
+
+Stage 5: Execution
+
+The Operating System starts:
+
+main()
+
+
+ADDING ERROR HANDLING
+
+printf() returns a value.
+
+Prototype:
+
+int printf(const char *format, ...);
+
+Return value:
+
+>=0  -> success
+<0   -> failure
+
+
+IMPROVED VERSION WITH ERROR HANDLING
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ret = printf("Hello World\n");
+
+    if (ret < 0)
+    {
+        fprintf(stderr, "printf failed\n");
+        return 1;
+    }
+
+    return 0;
+}
+
+
+ERROR HANDLING EXPLANATION
+
+1. Store printf() return value
+
+int ret = printf(...);
+
+Captures the printed character count.
+
+2. Check for failure
+
+if (ret < 0)
+
+Negative return value means output error.
+
+Possible examples:
+
+- stdout closed
+- broken pipe
+- I/O issue
+
+3. fprintf(stderr, ...)
+
+fprintf(stderr, "printf failed\n");
+
+Prints an error message to the standard error stream.
+
+stderr is separate from normal output.
+
+4. return 1
+
+return 1;
+
+Tells the Operating System:
+
+"Program ended with an error."
+
+
+MAIN() ERROR HANDLING
+
+The main() function itself can also use error handling through its return value.
+
+Prototype:
+
+int main(void)
+
+main returns an integer to the Operating System.
+
+Return Convention:
+
+return 0;  -> Program executed successfully.
+return 1;  -> Generic failure.
+return n;  -> Specific application-defined error code.
+
+Examples:
+
+return 0;    Success
+return 1;    General Error
+return 2;    File Error
+return 3;    Memory Allocation Error
+
+The Operating System reads the exit status returned by main().
+
+Example:
+
+int main(void)
+{
+    return 0;
+}
+
+Here:
+
+0 means successful execution.
+
+Example with failure:
+
+int main(void)
+{
+    return 1;
+}
+
+Here:
+
+1 indicates abnormal termination.
+
+Using Standard Macros for main() Return Codes
+
+Instead of using numeric values directly, C provides macros in stdlib.h:
+
+EXIT_SUCCESS
+EXIT_FAILURE
+
+```txt id="jlwmf8"
+C COMPILATION STAGES WITH "HELLO WORLD" PROGRAM
+
+PROGRAM:
+
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Hello World\n");
+
+    return 0;
+}
+
+A C program does not directly become an executable.
+
+The compiler converts the source code into an executable in multiple stages.
+
+Compilation Pipeline:
+
+1. Preprocessing
+2. Compilation
+3. Assembly
+4. Linking
+5. Execution
+
+
+=========================================================
+STAGE 1 : PREPROCESSING
+=========================================================
+
+Input File:
+
+hello.c
+
+Source Code:
+
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Hello World\n");
+
+    return 0;
+}
+
+Command:
+
+gcc -E hello.c -o hello.i
+
+Purpose:
+
+The Preprocessor handles directives beginning with #.
+
+Examples:
+
+#include
+#define
+#ifdef
+#ifndef
+
+Main Work Done:
+
+1. Header File Expansion
+2. Macro Expansion
+3. Conditional Compilation
+4. Comment Removal
+
+Example:
+
+Before preprocessing:
+
+#include <stdio.h>
+
+After preprocessing:
+
+Contents of stdio.h are copied into the file.
+
+Conceptually:
+
+/* huge expanded header content */
+
+extern int printf(const char *format, ...);
+
+int main(void)
+{
+    printf("Hello World\n");
+
+    return 0;
+}
+
+Output File:
+
+hello.i
+
+(.i = preprocessed file)
+
+At this stage:
+
+- No machine code generated.
+- Only text substitution and preprocessing performed.
+
+
+=========================================================
+STAGE 2 : COMPILATION
+=========================================================
+
+Command:
+
+gcc -S hello.i -o hello.s
+
+Purpose:
+
+Convert C source code into Assembly Language.
+
+Input:
+
+Preprocessed code (.i)
+
+Output:
+
+Assembly code (.s)
+
+Compiler checks:
+
+1. Syntax errors
+2. Type checking
+3. Semantic analysis
+4. Optimizations
+
+Example conversion:
+
+C Code:
+
+printf("Hello World\n");
+
+Possible Assembly Representation:
+
+mov     rdi, OFFSET FLAT:.LC0
+call    printf
+
+Another example:
+
+return 0;
+
+Assembly:
+
+mov     eax, 0
+ret
+
+Output File:
+
+hello.s
+
+(.s = assembly source file)
+
+At this stage:
+
+Human-readable assembly code is generated.
+
+
+=========================================================
+STAGE 3 : ASSEMBLY
+=========================================================
+
+Command:
+
+gcc -c hello.s -o hello.o
+
+Purpose:
+
+Convert assembly language into machine code.
+
+Input:
+
+hello.s
+
+Output:
+
+hello.o
+
+(.o = object file)
+
+Assembly:
+
+mov eax,0
+ret
+
+becomes binary machine instructions:
+
+10111000 00000000
+11000011
+
+Characteristics of Object File:
+
+- Machine code generated.
+- Not executable yet.
+- Contains unresolved symbols.
+
+Example:
+
+printf() is still unresolved.
+
+The assembler knows:
+
+"printf exists somewhere."
+
+But it does not know where.
+
+
+=========================================================
+STAGE 4 : LINKING
+=========================================================
+
+Command:
+
+gcc hello.o -o hello
+
+Purpose:
+
+Combine object files and libraries.
+
+Input:
+
+hello.o
+
+Linker Responsibilities:
+
+1. Resolve external symbols.
+2. Combine libraries.
+3. Produce executable.
+
+Problem:
+
+Your code uses:
+
+printf()
+
+But printf() is not written inside your file.
+
+It exists inside the C Standard Library.
+
+Linker searches:
+
+libc
+
+and resolves:
+
+printf()
+
+Conceptually:
+
+Before Linking:
+
+main() ---> printf()   (unknown location)
+
+After Linking:
+
+main() ---> actual printf() address
+
+Output:
+
+hello
+
+(executable file)
+
+
+=========================================================
+STAGE 5 : EXECUTION
+=========================================================
+
+Command:
+
+./hello
+
+Purpose:
+
+Run the executable.
+
+Operating System actions:
+
+1. Load executable into memory.
+2. Create process.
+3. Setup stack/heap.
+4. Transfer control to program startup code.
+5. Eventually call:
+
+main()
+
+Execution Flow:
+
+main()
+   ↓
+printf()
+   ↓
+stdout
+   ↓
+Terminal Output
+
+Result:
+
+Hello World
+
+
+=========================================================
+FULL GCC SHORTCUT
+=========================================================
+
+Instead of running every stage separately:
+
+gcc hello.c -o hello
+
+GCC internally performs:
+
+Preprocessing
+    ↓
+Compilation
+    ↓
+Assembly
+    ↓
+Linking
+
+Then produces:
+
+hello
+
+
+=========================================================
+FILE FLOW SUMMARY
+=========================================================
+
+hello.c
+   |
+   | Preprocessing
+   v
+hello.i
+   |
+   | Compilation
+   v
+hello.s
+   |
+   | Assembly
+   v
+hello.o
+   |
+   | Linking
+   v
+hello (Executable)
+   |
+   | Execution
+   v
+Hello World
+
+
+=========================================================
+COMPILATION STAGES SUMMARY TABLE
+=========================================================
+
+Stage           Input      Output     Purpose
+--------------------------------------------------------------
+Preprocessing   .c         .i         Handle # directives
+Compilation     .i         .s         Generate assembly code
+Assembly        .s         .o         Generate machine code
+Linking         .o         executable Resolve libraries/symbols
+Execution       executable output     Run program
+
+
+=========================================================
+COMPLETE VISUAL FLOW
+=========================================================
+
+hello.c
+
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Hello World\n");
+
+    return 0;
+}
+
+        |
+        v
+
+Preprocessor
+
+Expands:
+
+#include <stdio.h>
+
+        |
+        v
+
+Compiler
+
+Converts:
+
+C Code → Assembly
+
+        |
+        v
+
+Assembler
+
+Converts:
+
+Assembly → Object Machine Code
+
+        |
+        v
+
+Linker
+
+Connects:
+
+printf() + libc + object files
+
+        |
+        v
+
+Executable Created
+
+        |
+        v
+
+Operating System Runs Program
+
+        |
+        v
+
+Output:
+
+Hello World
+```
+
