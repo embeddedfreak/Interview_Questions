@@ -1,0 +1,28 @@
+1. Write a C/C++ program to implement Linear Search to find an element in an array.
+
+2. Write a C/C++ program to implement Binary Search to find a target element in a sorted array.
+
+3. Write a C/C++ program to find the missing number in an array containing numbers from 1 to N.
+
+4. Write a C/C++ program to remove duplicate elements from an array.
+
+5. Write a C/C++ program to remove duplicate elements from an array without using a `set` or STL containers.
+
+6. Write a C/C++ program to reverse the elements of an array.
+
+7. Write a C/C++ program to right rotate an array by one position.
+
+8. Write a C/C++ program to right rotate an array by `k` positions.
+
+9. Write a C/C++ program to find the second largest element in an array.
+
+10. Write a C/C++ program to find the maximum subarray sum using the brute-force approach (Method 1).
+
+11. Write a C/C++ program to find the maximum subarray sum using an optimized brute-force approach (Method 2).
+
+12. Write a C/C++ program to find the maximum subarray sum using Kadane’s Algorithm.
+
+13. Write a C/C++ program to move all zero elements to the end of the array using a brute-force approach.
+
+14. Write a C/C++ program to move all zero elements to the end of an array using the two-pointer technique.
+

@@ -1,0 +1,72 @@
+1) Find set bit in integer number.
+
+2) Find first set bit in integer number.
+
+3) How many times Divide a number by 2 and make it 0.
+
+4) Find if number is power of 2.
+
+5) Find number of bits to be fliped to make a number a to b.
+
+6) Find one non repeating number from pair of number.
+1, 2, 1, 2, 3 => 3
+2, 3, 4, 4, 2 => 
+
+7) Find 2 non repeating number from pair of number.
+1, 2, 1, 2, 3, 4 => 3, 4
+2, 3, 4, 4, 2, 5 => 3, 5
+
+8) Find the subsequence of given string | POWER SET.
+
+Input: abc
+Output: a, b, c, ab, bc, abc
+
+Hint: (2^n-1)
+
+9) Check if ith bit is set or not.
+num = 4
+i = 2
+
+10) Set ith bit of a number.
+
+11) Clear the ith bit of given number.
+
+12) Clear the last set bit
+1010 = 1000
+hint x & x-1
+
+13) Toggle ith bit in a given number.
+
+14) Compute sign of integer.
+
+15) Detect if 2 integers have opposite signs.
+
+16 Reverse bits in a number.
+
+17) Swap even and odd bits
+
+18) Swap 2 bits of a nibble.
+
+19) Swap nibbles
+
+20) Swap 2 numbers without using temp. Using bitwise.
+
+21) Clear all bits from MSB to ith.
+
+22) Clear all bits from LSB to ith.
+
+23) Multiply a number by 2 using bitwise.
+
+24) Divide a number by 2 using bitwise.
+
+25) Multiple a number with 3.5 using bitwise.
+
+Hint: (2 * num) + num + (num/2)
+
+26) Change endianess of a number.
+
+27) Write macros to 
+	SET_BIT(num, pos)
+	CLEAR_BIT(num, pos)
+	TOGGLE_BIT(num, pos)
+	CHECK_BIT_SET_OR_NOT(num, pos)
