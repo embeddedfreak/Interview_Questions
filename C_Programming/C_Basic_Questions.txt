@@ -10,3 +10,4 @@ Write a C program to convert a binary number into its decimal equivalent.
 Write a C program to calculate the power of an integer (base^exponent).
 Write a C program to check whether a given year is a leap year or not.
 Write a C program to check whether a given number is a Perfect number or not.
+Write a C/C++ program to check whether any digit in a given number appears more than once.

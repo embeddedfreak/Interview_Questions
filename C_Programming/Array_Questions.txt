@@ -26,3 +26,6 @@
 
 14. Write a C/C++ program to move all zero elements to the end of an array using the two-pointer technique.
 
+15. Write a C/C++ program to calculate the sum of each row and each column of a 3×3 matrix.
+
+16. Write a C/C++ program to perform multiplication of two matrices and display the resultant matrix.
