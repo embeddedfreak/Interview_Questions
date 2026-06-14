@@ -1,0 +1,967 @@
+Great. Let's move to the next important topic:
+
+4. Kernel Modules and Character Drivers
+
+This is often the first hands-on Linux driver interview topic.
+
+What is a Kernel Module?
+
+A kernel module is code that can be loaded into the kernel without rebooting.
+
+Examples:
+
+USB driver
+WiFi driver
+Camera driver
+UART driver
+I2C driver
+
+Instead of compiling everything into the kernel, Linux allows loading drivers dynamically.
+
+File extension:
+
+.ko
+
+Example:
+
+my_driver.ko
+Why Kernel Modules?
+
+Without modules:
+
+Change driver
+↓
+Recompile kernel
+↓
+Reboot
+
+With modules:
+
+Compile driver
+↓
+insmod driver.ko
+↓
+Done
+
+Much easier.
+
+Basic Module Structure
+
+The smallest driver looks like:
+
+#include <linux/module.h>
+#include <linux/kernel.h>
+
+static int __init my_init(void)
+{
+    printk(KERN_INFO "Driver Loaded\n");
+    return 0;
+}
+
+static void __exit my_exit(void)
+{
+    printk(KERN_INFO "Driver Removed\n");
+}
+
+module_init(my_init);
+module_exit(my_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Your Name");
+MODULE_DESCRIPTION("Simple Driver");
+Understanding the Flow
+
+When you run:
+
+insmod my_driver.ko
+
+Kernel executes:
+
+my_init()
+
+When you run:
+
+rmmod my_driver
+
+Kernel executes:
+
+my_exit()
+
+So:
+
+insmod
+   |
+   v
+my_init()
+
+rmmod
+   |
+   v
+my_exit()
+Important Macros
+module_init()
+
+Tells the kernel:
+
+"Call this function when loading the module."
+
+Example:
+
+module_init(my_init);
+module_exit()
+
+Tells the kernel:
+
+"Call this function when removing the module."
+
+Example:
+
+module_exit(my_exit);
+What is __init?
+static int __init my_init(void)
+
+Meaning:
+
+This function is needed only during module loading.
+
+After loading, the kernel can free the memory used by this function.
+
+Optimization.
+
+What is __exit?
+static void __exit my_exit(void)
+
+Meaning:
+
+This function is only needed when unloading the module.
+
+Module Commands
+Load
+sudo insmod my_driver.ko
+Remove
+sudo rmmod my_driver
+
+Notice:
+
+my_driver.ko   ← insmod
+
+my_driver      ← rmmod
+List Loaded Modules
+lsmod
+
+Example:
+
+Module        Size    Used by
+usbcore       327680  3
+i2c_dev        20480  0
+Module Information
+modinfo my_driver.ko
+
+Shows:
+
+author
+license
+description
+version
+printk()
+
+Kernel version of:
+
+printf()
+
+Example:
+
+printk("Hello\n");
+
+Better:
+
+printk(KERN_INFO "Hello\n");
+Log Levels
+Information
+KERN_INFO
+
+Example:
+
+printk(KERN_INFO "Driver loaded\n");
+Warning
+KERN_WARNING
+
+Example:
+
+printk(KERN_WARNING "Buffer nearly full\n");
+Error
+KERN_ERR
+
+Example:
+
+printk(KERN_ERR "Allocation failed\n");
+Viewing printk Output
+
+Use:
+
+dmesg
+
+Example:
+
+Driver Loaded
+Driver Removed
+
+or:
+
+dmesg | tail
+Character Driver Concept
+
+Now the interesting part.
+
+Suppose you write:
+
+cat /dev/mydevice
+
+or
+
+read(fd, buf, 10);
+
+How does Linux know which driver to call?
+
+Answer:
+
+The driver registers a set of operations.
+
+Character Driver Operations
+
+Think of them like callbacks.
+
+struct file_operations
+
+contains:
+
+open()
+read()
+write()
+release()
+
+Example:
+
+static const struct file_operations fops = {
+    .open = my_open,
+    .read = my_read,
+    .write = my_write,
+    .release = my_close,
+};
+What Happens Internally?
+
+User:
+
+read(fd, buf, 100);
+
+Kernel:
+
+read()
+   |
+   v
+file_operations.read
+   |
+   v
+my_read()
+
+Your driver's function executes.
+
+Real-Life Analogy
+
+Imagine:
+
+/dev/uart0
+
+User writes:
+
+echo hello > /dev/uart0
+
+Kernel calls:
+
+my_write()
+
+Driver sends data to UART hardware.
+
+Device File
+
+Linux treats devices as files.
+
+Examples:
+
+/dev/ttyS0
+/dev/i2c-1
+/dev/spidev0.0
+/dev/null
+
+This is why:
+
+open()
+read()
+write()
+close()
+
+work for devices too.
+
+Interview Question
+Why are devices represented as files?
+
+Expected answer:
+
+Linux follows:
+
+Everything is a file
+
+A common interface simplifies access to hardware.
+
+Most Common Interview Questions from This Topic
+1. Difference between a kernel module and a driver?
+
+Answer:
+
+Kernel Module:
+    Loadable kernel code
+
+Driver:
+    A kernel module that controls hardware
+
+Every driver can be a module, but not every module is necessarily a device driver.
+
+2. What happens when insmod is executed?
+
+Answer:
+
+Kernel loads module
+Calls module_init() function
+Registers resources/devices
+3. What happens when rmmod is executed?
+
+Answer:
+
+Kernel calls module_exit()
+Frees resources
+Removes module
+4. Difference between printf and printk?
+printf	printk
+User space	Kernel space
+stdout	Kernel log buffer
+Used in apps	Used in drivers
+5. What is struct file_operations?
+
+Answer:
+
+A table of function pointers that tells the kernel which driver functions to call for open/read/write/close operations.
+
+Mini Revision
+
+Remember these five items:
+
+module_init()
+module_exit()
+printk()
+struct file_operations
+insmod / rmmod
+
+If you're comfortable with this, the next topic should be Character Driver Registration:
+
+alloc_chrdev_region()
+cdev_init()
+cdev_add()
+creating /dev/mydevice
+
+This is where you'll write your first real Linux character driver.
+
+Explain next topic
+
+Excellent. Now we're entering the part that interviewers ask most often:
+
+Character Driver Registration
+
+Until now, we only loaded a kernel module.
+
+But a driver becomes useful only when user-space can access it.
+
+For example:
+
+cat /dev/mydevice
+echo hello > /dev/mydevice
+
+To make this work, we need to register a character device.
+
+Big Picture
+
+When a user does:
+
+fd = open("/dev/mydevice", O_RDWR);
+
+Linux needs to know:
+
+Which driver owns /dev/mydevice?
+
+The kernel identifies drivers using:
+
+Major Number
+Minor Number
+Major and Minor Numbers
+
+Think of them like:
+
+Major = Driver ID
+Minor = Device Instance
+
+Example:
+
+UART Driver
+    |
+    +-- UART0 (minor 0)
+    +-- UART1 (minor 1)
+    +-- UART2 (minor 2)
+
+The kernel uses:
+
+Major → Which driver?
+Minor → Which device?
+Example
+
+You may see:
+
+ls -l /dev/ttyS0
+
+Output:
+
+crw-rw---- 1 root dialout 4, 64 ttyS0
+
+Here:
+
+Major = 4
+Minor = 64
+Step 1: Allocate Device Numbers
+
+Modern approach:
+
+dev_t dev_num;
+
+alloc_chrdev_region(&dev_num,
+                     0,
+                     1,
+                     "mydevice");
+
+Meaning:
+
+Allocate:
+1 device
+starting minor = 0
+name = mydevice
+What is dev_t?
+dev_t dev_num;
+
+Kernel type storing:
+
+Major + Minor
+Extract Major and Minor
+MAJOR(dev_num)
+MINOR(dev_num)
+
+Example:
+
+printk("Major=%d Minor=%d\n",
+       MAJOR(dev_num),
+       MINOR(dev_num));
+Step 2: Create cdev
+
+Kernel uses:
+
+struct cdev
+
+to represent a character device.
+
+Declare:
+
+struct cdev my_cdev;
+Step 3: Initialize cdev
+cdev_init(&my_cdev, &fops);
+
+Meaning:
+
+Associate this device
+with these operations
+
+Remember:
+
+struct file_operations fops
+
+contains:
+
+open
+read
+write
+release
+Step 4: Add Device to Kernel
+cdev_add(&my_cdev,
+         dev_num,
+         1);
+
+Meaning:
+
+Kernel,
+this device exists now.
+Complete Flow
+alloc_chrdev_region()
+
+cdev_init()
+
+cdev_add()
+
+Think:
+
+Get number
+↓
+Create device
+↓
+Register device
+Driver Skeleton
+#include <linux/module.h>
+#include <linux/fs.h>
+#include <linux/cdev.h>
+
+dev_t dev_num;
+struct cdev my_cdev;
+
+static int my_open(struct inode *inode,
+                   struct file *file)
+{
+    printk(KERN_INFO "Open\n");
+    return 0;
+}
+
+static int my_release(struct inode *inode,
+                      struct file *file)
+{
+    printk(KERN_INFO "Close\n");
+    return 0;
+}
+
+static struct file_operations fops = {
+    .owner = THIS_MODULE,
+    .open = my_open,
+    .release = my_release,
+};
+Module Init
+static int __init my_init(void)
+{
+    alloc_chrdev_region(&dev_num,
+                        0,
+                        1,
+                        "mydevice");
+
+    cdev_init(&my_cdev,
+              &fops);
+
+    cdev_add(&my_cdev,
+             dev_num,
+             1);
+
+    return 0;
+}
+Module Exit
+
+Cleanup is important.
+
+static void __exit my_exit(void)
+{
+    cdev_del(&my_cdev);
+
+    unregister_chrdev_region(
+            dev_num,
+            1);
+}
+Why Cleanup?
+
+Imagine:
+
+Driver loaded
+Driver unloaded
+
+If cleanup isn't done:
+
+Device numbers leaked
+Kernel resources leaked
+
+Bad.
+
+User Opens Device
+
+User:
+
+fd = open("/dev/mydevice", O_RDWR);
+
+Kernel:
+
+Find major/minor
+↓
+Find driver
+↓
+Call my_open()
+User Closes Device
+close(fd);
+
+Kernel:
+
+Call my_release()
+Important Structures
+inode
+struct inode *inode
+
+Contains metadata:
+
+Major number
+Minor number
+Permissions
+file
+struct file *file
+
+Represents the opened file instance.
+
+Contains:
+
+Current position
+Flags
+Private data
+Interview Question
+Difference between inode and file?
+
+Answer:
+
+inode:
+    Describes the device/file itself
+
+file:
+    Represents an open instance
+
+Example:
+
+One device
+
+3 processes open it
+
+=> 1 inode
+=> 3 file structures
+Typical Interview Question
+
+What happens when:
+
+open("/dev/mydevice")
+
+Answer:
+
+Kernel checks major/minor
+Finds registered driver
+Calls fops.open
+Another Interview Question
+
+Why do we use:
+
+cdev_init()
+
+Answer:
+
+To associate a character device with a file_operations structure.
+
+Common Mistake
+
+Many beginners think:
+
+alloc_chrdev_region()
+
+creates:
+
+/dev/mydevice
+
+It does NOT.
+
+It only allocates:
+
+Major number
+Minor number
+
+Creating /dev/mydevice requires additional steps (class_create, device_create, or mknod).
+
+Interview Questions from This Topic
+What is a major number?
+What is a minor number?
+Why do we need struct cdev?
+Difference between inode and file?
+What does cdev_add() do?
+What happens when open() is called from user space?
+Why do we unregister device numbers during module removal?
+Quick Memory Trick
+
+Character driver registration is usually:
+
+alloc_chrdev_region()
+        ↓
+cdev_init()
+        ↓
+cdev_add()
+
+Cleanup:
+
+cdev_del()
+        ↓
+unregister_chrdev_region()
+
+Once you're comfortable with this, the next topic is read(), write(), copy_to_user(), and copy_from_user(), which is where drivers actually exchange data with user-space. That's another very common interview area.
+
+Next topic
+
+Good, now we reach the core of real driver work.
+
+6. User–Kernel Data Transfer (read/write APIs)
+
+This is one of the most important interview topics.
+
+Why do we need this?
+
+User space and kernel space are separate.
+
+So this is NOT allowed:
+
+kernel_buffer = user_buffer;   // ❌ wrong
+
+Because:
+
+User memory can be invalid
+Kernel must not crash
+Security risk
+
+So Linux provides safe APIs.
+
+Main Idea
+
+Whenever user does:
+
+write(fd, buf, 100);
+
+Kernel driver gets:
+
+my_write(struct file *file,
+         const char __user *buf,
+         size_t len,
+         loff_t *offset)
+Key Functions
+1. copy_from_user()
+
+Used in write()
+
+copy_from_user(kernel_buf,
+               user_buf,
+               len);
+
+Meaning:
+
+Copy data from user space → kernel space
+2. copy_to_user()
+
+Used in read()
+
+copy_to_user(user_buf,
+             kernel_buf,
+             len);
+
+Meaning:
+
+Copy data from kernel space → user space
+Why not direct pointer access?
+
+Because user pointers:
+
+may be invalid
+may point to swapped memory
+may be malicious
+may cause kernel crash if dereferenced directly
+
+So kernel validates access internally.
+
+Simple Driver Example
+Global buffer
+char kernel_buffer[100];
+write()
+static ssize_t my_write(struct file *file,
+                        const char __user *buf,
+                        size_t len,
+                        loff_t *off)
+{
+    copy_from_user(kernel_buffer,
+                   buf,
+                   len);
+
+    printk(KERN_INFO "Data received: %s\n",
+           kernel_buffer);
+
+    return len;
+}
+read()
+static ssize_t my_read(struct file *file,
+                       char __user *buf,
+                       size_t len,
+                       loff_t *off)
+{
+    copy_to_user(buf,
+                 kernel_buffer,
+                 len);
+
+    return len;
+}
+Function Signatures (VERY IMPORTANT)
+write()
+ssize_t (*write)(struct file *file,
+                 const char __user *buf,
+                 size_t len,
+                 loff_t *off);
+read()
+ssize_t (*read)(struct file *file,
+                char __user *buf,
+                size_t len,
+                loff_t *off);
+What is __user?
+const char __user *buf
+
+Meaning:
+
+This pointer is from USER SPACE
+
+It is a hint to kernel developers and static analyzers.
+
+Return Values
+read/write must return:
+number of bytes successfully transferred
+
+Example:
+
+return len;
+
+or error:
+
+return -EFAULT;
+Common Errors
+1. Forgetting return value
+
+Bad:
+
+return 0;
+
+Good:
+
+return len;
+2. Using strcpy directly
+
+❌ Wrong:
+
+strcpy(kernel_buffer, user_buf);
+
+✔ Correct:
+
+copy_from_user()
+3. Ignoring return of copy functions
+
+Both functions return number of bytes NOT copied.
+
+Real Flow Example
+
+User program:
+
+write(fd, "hello", 5);
+
+Kernel flow:
+
+write syscall
+   ↓
+driver write()
+   ↓
+copy_from_user()
+   ↓
+kernel buffer updated
+Read Flow Example
+
+User program:
+
+read(fd, buf, 5);
+
+Kernel flow:
+
+driver read()
+   ↓
+copy_to_user()
+   ↓
+user buffer filled
+Important Interview Concept
+Who allocates buffers?
+Space	Buffer
+User	malloc / stack
+Kernel	kmalloc / static array
+Offset (loff_t *off)
+
+Used for:
+
+file position tracking
+
+Example:
+
+read() called again → continue from previous position
+Simple Analogy
+
+Think:
+
+User = Customer
+Kernel = Warehouse
+
+copy_from_user = Customer gives data to warehouse
+
+copy_to_user = Warehouse gives data to customer
+Very Important Interview Questions
+1. Why copy_from_user instead of memcpy?
+
+Answer:
+
+User memory is unsafe and not directly accessible by kernel
+2. What happens if you dereference user pointer directly?
+
+Answer:
+
+Kernel crash (page fault)
+3. Difference between read and write?
+Operation	Direction
+read()	kernel → user
+write()	user → kernel
+4. What is __user?
+
+Answer:
+
+Annotation indicating pointer is from user space
+Common Mistakes in Interviews
+Using strcpy instead of copy_from_user
+Returning wrong size
+Not checking errors
+Confusing read/write direction
+Mini Summary
+User → Kernel : copy_from_user()
+
+Kernel → User : copy_to_user()
+
+Never access user pointer directly
+Next Topic
+
+Next step in your learning:
+
+Interrupts in Linux Device Drivers
+
+This is where things become very “real hardware”.
+
+You’ll learn:
+
+request_irq()
+ISR (Interrupt Service Routine)
+Top half / Bottom half
+Why ISR must be fast
+Spinlocks vs interrupts
+
+Tell me “next” and I’ll continue.
