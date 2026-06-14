@@ -965,3 +965,702 @@ Why ISR must be fast
 Spinlocks vs interrupts
 
 Tell me “next” and I’ll continue.
+
+
+Good, now we reach the core of real driver work.
+
+6. User–Kernel Data Transfer (read/write APIs)
+
+This is one of the most important interview topics.
+
+Why do we need this?
+
+User space and kernel space are separate.
+
+So this is NOT allowed:
+
+kernel_buffer = user_buffer;   // ❌ wrong
+
+Because:
+
+User memory can be invalid
+Kernel must not crash
+Security risk
+
+So Linux provides safe APIs.
+
+Main Idea
+
+Whenever user does:
+
+write(fd, buf, 100);
+
+Kernel driver gets:
+
+my_write(struct file *file,
+         const char __user *buf,
+         size_t len,
+         loff_t *offset)
+Key Functions
+1. copy_from_user()
+
+Used in write()
+
+copy_from_user(kernel_buf,
+               user_buf,
+               len);
+
+Meaning:
+
+Copy data from user space → kernel space
+2. copy_to_user()
+
+Used in read()
+
+copy_to_user(user_buf,
+             kernel_buf,
+             len);
+
+Meaning:
+
+Copy data from kernel space → user space
+Why not direct pointer access?
+
+Because user pointers:
+
+may be invalid
+may point to swapped memory
+may be malicious
+may cause kernel crash if dereferenced directly
+
+So kernel validates access internally.
+
+Simple Driver Example
+Global buffer
+char kernel_buffer[100];
+write()
+static ssize_t my_write(struct file *file,
+                        const char __user *buf,
+                        size_t len,
+                        loff_t *off)
+{
+    copy_from_user(kernel_buffer,
+                   buf,
+                   len);
+
+    printk(KERN_INFO "Data received: %s\n",
+           kernel_buffer);
+
+    return len;
+}
+read()
+static ssize_t my_read(struct file *file,
+                       char __user *buf,
+                       size_t len,
+                       loff_t *off)
+{
+    copy_to_user(buf,
+                 kernel_buffer,
+                 len);
+
+    return len;
+}
+Function Signatures (VERY IMPORTANT)
+write()
+ssize_t (*write)(struct file *file,
+                 const char __user *buf,
+                 size_t len,
+                 loff_t *off);
+read()
+ssize_t (*read)(struct file *file,
+                char __user *buf,
+                size_t len,
+                loff_t *off);
+What is __user?
+const char __user *buf
+
+Meaning:
+
+This pointer is from USER SPACE
+
+It is a hint to kernel developers and static analyzers.
+
+Return Values
+read/write must return:
+number of bytes successfully transferred
+
+Example:
+
+return len;
+
+or error:
+
+return -EFAULT;
+Common Errors
+1. Forgetting return value
+
+Bad:
+
+return 0;
+
+Good:
+
+return len;
+2. Using strcpy directly
+
+❌ Wrong:
+
+strcpy(kernel_buffer, user_buf);
+
+✔ Correct:
+
+copy_from_user()
+3. Ignoring return of copy functions
+
+Both functions return number of bytes NOT copied.
+
+Real Flow Example
+
+User program:
+
+write(fd, "hello", 5);
+
+Kernel flow:
+
+write syscall
+   ↓
+driver write()
+   ↓
+copy_from_user()
+   ↓
+kernel buffer updated
+Read Flow Example
+
+User program:
+
+read(fd, buf, 5);
+
+Kernel flow:
+
+driver read()
+   ↓
+copy_to_user()
+   ↓
+user buffer filled
+Important Interview Concept
+Who allocates buffers?
+Space	Buffer
+User	malloc / stack
+Kernel	kmalloc / static array
+Offset (loff_t *off)
+
+Used for:
+
+file position tracking
+
+Example:
+
+read() called again → continue from previous position
+Simple Analogy
+
+Think:
+
+User = Customer
+Kernel = Warehouse
+
+copy_from_user = Customer gives data to warehouse
+
+copy_to_user = Warehouse gives data to customer
+Very Important Interview Questions
+1. Why copy_from_user instead of memcpy?
+
+Answer:
+
+User memory is unsafe and not directly accessible by kernel
+2. What happens if you dereference user pointer directly?
+
+Answer:
+
+Kernel crash (page fault)
+3. Difference between read and write?
+Operation	Direction
+read()	kernel → user
+write()	user → kernel
+4. What is __user?
+
+Answer:
+
+Annotation indicating pointer is from user space
+Common Mistakes in Interviews
+Using strcpy instead of copy_from_user
+Returning wrong size
+Not checking errors
+Confusing read/write direction
+Mini Summary
+User → Kernel : copy_from_user()
+
+Kernel → User : copy_to_user()
+
+Never access user pointer directly
+Next Topic
+
+Next step in your learning:
+
+Interrupts in Linux Device Drivers
+
+This is where things become very “real hardware”.
+
+You’ll learn:
+
+request_irq()
+ISR (Interrupt Service Routine)
+Top half / Bottom half
+Why ISR must be fast
+Spinlocks vs interrupts
+
+Tell me “next” and I’ll continue.
+
+next topic
+
+Excellent. Interrupts are one of the most frequently asked Linux device driver interview topics.
+
+7. Interrupts in Linux Device Drivers
+First, Why Do We Need Interrupts?
+
+Imagine a keyboard.
+
+Without interrupts:
+
+CPU:
+    Key pressed?
+    Key pressed?
+    Key pressed?
+    Key pressed?
+
+This is called polling.
+
+Problems:
+
+CPU wastes time
+High power consumption
+Poor performance
+
+With interrupts:
+
+CPU doing other work
+        |
+        |
+Keyboard key pressed
+        |
+        v
+Interrupt generated
+        |
+        v
+CPU immediately handles it
+
+Much more efficient.
+
+Real-Life Analogy
+
+Polling:
+
+You keep checking:
+"Has the food arrived?"
+"Has the food arrived?"
+"Has the food arrived?"
+
+Interrupt:
+
+Doorbell rings
+You answer the door
+What is an Interrupt?
+
+An interrupt is:
+
+A signal from hardware asking the CPU for immediate attention.
+
+Examples:
+
+Keyboard press
+Mouse movement
+Network packet arrival
+UART received data
+Timer expiration
+What Happens Internally?
+
+Suppose UART receives a character.
+
+Hardware:
+
+UART receives 'A'
+
+UART raises interrupt:
+
+IRQ
+
+CPU:
+
+Stop current execution
+Jump to ISR
+Handle event
+Return back
+What is ISR?
+
+ISR = Interrupt Service Routine
+
+Also called:
+
+Interrupt Handler
+
+Example:
+
+irqreturn_t my_irq_handler(int irq, void *dev_id)
+{
+    printk(KERN_INFO "Interrupt received\n");
+
+    return IRQ_HANDLED;
+}
+Registering an Interrupt
+
+Kernel API:
+
+request_irq()
+
+Example:
+
+request_irq(irq_number,
+            my_irq_handler,
+            IRQF_SHARED,
+            "my_driver",
+            &device);
+
+Meaning:
+
+Kernel,
+when interrupt irq_number occurs,
+call my_irq_handler()
+Parameters
+request_irq(
+    irq,
+    handler,
+    flags,
+    name,
+    dev
+);
+irq
+
+Interrupt number
+
+Example:
+
+IRQ 1 → Keyboard
+handler
+
+Function to execute
+
+my_irq_handler
+name
+
+Shown in:
+
+cat /proc/interrupts
+Freeing Interrupt
+
+When driver unloads:
+
+free_irq(irq_number,
+         &device);
+Why Must ISR Be Fast?
+
+Imagine:
+
+Keyboard interrupt arrives
+
+ISR starts:
+
+sleep(10)
+
+Now:
+
+Mouse interrupt arrives
+Network interrupt arrives
+UART interrupt arrives
+
+System becomes unresponsive.
+
+Therefore ISR should:
+
+✅ Read status register
+
+✅ Save data
+
+✅ Clear interrupt
+
+❌ Do heavy processing
+
+❌ Sleep
+
+❌ Wait for mutex
+
+Golden Rule
+
+ISR should do:
+
+Minimum work possible
+Why Can't ISR Sleep?
+
+Very common interview question.
+
+Because:
+
+Interrupt context
+
+has no normal process associated with it.
+
+Sleeping requires:
+
+Scheduler
+Process state
+Wakeup mechanism
+
+Interrupts don't have those.
+
+Interview Answer
+
+ISR runs in interrupt context, so it cannot sleep or block.
+
+Top Half and Bottom Half
+
+To keep ISR short, Linux divides work into:
+
+Top Half
+Bottom Half
+Top Half
+
+Runs immediately.
+
+ISR.
+
+Example:
+
+Read UART data
+Clear interrupt
+Store data
+
+Must be fast.
+
+Bottom Half
+
+Runs later.
+
+Example:
+
+Parse packet
+Process data
+Send notification
+
+Can do more work.
+
+Flow:
+
+Interrupt
+    |
+    v
+Top Half (ISR)
+    |
+    v
+Schedule Bottom Half
+    |
+    v
+Return quickly
+Bottom Half Mechanisms
+
+Historically:
+
+Tasklets
+SoftIRQs
+
+Modern Linux:
+
+Workqueues
+
+are most commonly used.
+
+Interviewers usually care more about the concept than the implementation.
+
+Example
+
+UART receives 1000 bytes.
+
+Bad ISR:
+
+Receive byte
+Process byte
+Format string
+Update logs
+
+CPU stuck in ISR.
+
+Good ISR:
+
+Receive byte
+Store byte
+Schedule workqueue
+Exit
+
+Workqueue handles processing later.
+
+Interrupt Context vs Process Context
+
+This is a favorite interview question.
+
+Feature	Process Context	Interrupt Context
+Has process	Yes	No
+Can sleep	Yes	No
+Can schedule	Yes	No
+Can use mutex	Yes	No
+Can use spinlock	Yes	Yes
+Synchronization Problem
+
+Suppose:
+
+ISR updates buffer
+
+and
+
+read() also accesses buffer
+
+Race condition!
+
+Example:
+
+ISR writing
+read() reading
+
+Data corruption possible.
+
+Solution
+
+Use:
+
+spinlock_t lock;
+Spinlock
+
+Acquire:
+
+spin_lock(&lock);
+
+Release:
+
+spin_unlock(&lock);
+
+Why not mutex?
+
+Because:
+
+Mutex can sleep
+ISR cannot sleep
+
+Therefore:
+
+ISR → Spinlock
+Process Context → Mutex or Spinlock
+Check Interrupts
+
+Linux provides:
+
+cat /proc/interrupts
+
+Example:
+
+IRQ   Count    Device
+1     12345    keyboard
+
+Very useful while debugging drivers.
+
+Typical Driver Flow
+Device generates interrupt
+        |
+        v
+ISR executes
+        |
+        v
+Read status register
+        |
+        v
+Clear interrupt
+        |
+        v
+Schedule bottom half
+        |
+        v
+Return IRQ_HANDLED
+Most Asked Interview Questions
+1. What is an interrupt?
+
+Signal from hardware requesting CPU attention.
+
+2. Why use interrupts instead of polling?
+
+Interrupts avoid wasting CPU cycles.
+
+3. What is ISR?
+
+Function executed when interrupt occurs.
+
+4. Why can't ISR sleep?
+
+Runs in interrupt context, not process context.
+
+5. What should ISR do?
+
+Minimal work:
+
+Read status
+Save data
+Clear interrupt
+Exit
+6. What is top half?
+
+Immediate interrupt handler.
+
+7. What is bottom half?
+
+Deferred processing.
+
+8. Why use spinlocks in ISR?
+
+Mutexes can sleep; spinlocks cannot.
+
+Quick Memory Diagram
+Hardware Event
+      |
+      v
+Interrupt
+      |
+      v
+ISR (Top Half)
+      |
+      v
+Workqueue / Bottom Half
+      |
+      v
+Heavy Processing
+Before moving on
+
+Make sure you can answer these 4 questions:
+
+Why are interrupts better than polling?
+Why can't an ISR sleep?
+Difference between top half and bottom half?
+Why use a spinlock instead of a mutex inside an ISR?
+
+The next major topic is Kernel Memory Management:
+
+kmalloc()
+kzalloc()
+vmalloc()
+GFP_KERNEL
+GFP_ATOMIC
+
+These are asked in almost every Linux driver interview.
