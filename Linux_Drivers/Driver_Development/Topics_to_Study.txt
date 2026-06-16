@@ -1664,3 +1664,443 @@ GFP_KERNEL
 GFP_ATOMIC
 
 These are asked in almost every Linux driver interview.
+
+8. Kernel Memory Management in Device Drivers
+
+This is one of the most important Linux driver interview topics because drivers constantly allocate and free memory.
+
+Almost every real driver uses:
+
+kmalloc()
+kzalloc()
+vmalloc()
+kfree()
+GFP_KERNEL
+GFP_ATOMIC
+Why Do Drivers Need Dynamic Memory?
+
+Suppose your driver receives data from:
+
+UART
+SPI
+I2C
+Network
+Camera
+
+You often don't know the required buffer size at compile time.
+
+Example:
+
+char *buffer;
+
+buffer = kmalloc(1024, GFP_KERNEL);
+
+Memory is allocated dynamically.
+
+User Space vs Kernel Space Allocation
+
+User-space:
+
+malloc()
+calloc()
+free()
+
+Kernel-space:
+
+kmalloc()
+kzalloc()
+kfree()
+
+You cannot use malloc() inside the kernel.
+
+kmalloc()
+
+Most commonly used memory allocation API.
+
+Syntax:
+
+void *kmalloc(size_t size, gfp_t flags);
+
+Example:
+
+char *buffer;
+
+buffer = kmalloc(100, GFP_KERNEL);
+
+if (!buffer)
+    return -ENOMEM;
+
+Meaning:
+
+Allocate 100 bytes from kernel memory.
+
+kfree()
+
+Used to free memory allocated by kmalloc().
+
+Example:
+
+kfree(buffer);
+
+Always free memory when no longer needed.
+
+Memory Leak Example
+
+Bad:
+
+buffer = kmalloc(100, GFP_KERNEL);
+
+/* Driver exits */
+
+return;
+
+No kfree().
+
+Result:
+
+Memory leak.
+
+Good:
+
+kfree(buffer);
+kzalloc()
+
+Very common interview question.
+
+Syntax:
+
+kzalloc(size, flags);
+
+Equivalent to:
+
+ptr = kmalloc(size, flags);
+
+memset(ptr, 0, size);
+
+Example:
+
+struct my_device *dev;
+
+dev = kzalloc(sizeof(*dev),
+              GFP_KERNEL);
+
+All memory initialized to zero.
+
+Why Use kzalloc()?
+
+Without initialization:
+
+buffer = kmalloc(100,
+                 GFP_KERNEL);
+
+Buffer contains garbage values.
+
+With:
+
+buffer = kzalloc(100,
+                 GFP_KERNEL);
+
+Everything starts as:
+
+00 00 00 00 00 ...
+
+Safer.
+
+GFP Flags
+
+Interviewers ask this frequently.
+
+What does GFP mean?
+
+Get Free Pages
+
+The allocation flag tells the kernel:
+
+How should memory be allocated?
+
+GFP_KERNEL
+
+Most common allocation flag.
+
+Example:
+
+buffer = kmalloc(512,
+                 GFP_KERNEL);
+
+Meaning:
+
+This code can sleep if necessary
+while allocating memory.
+
+Used in:
+
+open()
+read()
+write()
+module initialization
+
+Basically:
+
+Process context
+
+GFP_ATOMIC
+
+Very important.
+
+Example:
+
+buffer = kmalloc(512,
+                 GFP_ATOMIC);
+
+Meaning:
+
+Do NOT sleep.
+Allocate immediately.
+
+Used in:
+
+ISR
+SoftIRQ
+Tasklets
+Atomic context
+Common Interview Question
+Why can't we use GFP_KERNEL inside ISR?
+
+Because:
+
+GFP_KERNEL may sleep
+ISR cannot sleep
+
+Therefore:
+
+kmalloc(size, GFP_ATOMIC);
+
+inside interrupts.
+
+Quick Memory Trick
+Context	Allocation Flag
+Process Context	GFP_KERNEL
+Interrupt Context	GFP_ATOMIC
+
+Interviewers love this question.
+
+What Happens Internally?
+
+When you call:
+
+kmalloc(1024, GFP_KERNEL);
+
+Kernel:
+
+Check free memory
+      ↓
+Allocate contiguous memory
+      ↓
+Return pointer
+Contiguous Memory
+
+Another favorite interview question.
+
+kmalloc() returns:
+
+Physically contiguous memory
+
+Example:
+
+1000
+1001
+1002
+1003
+1004
+
+Continuous physical addresses.
+
+Good for:
+
+DMA
+Device buffers
+Hardware access
+vmalloc()
+
+Used for large allocations.
+
+Example:
+
+ptr = vmalloc(10 * 1024 * 1024);
+
+Allocate:
+
+10 MB
+Difference Between kmalloc and vmalloc
+Feature	kmalloc	vmalloc
+Physical memory	Contiguous	Not contiguous
+Virtual memory	Contiguous	Contiguous
+Speed	Faster	Slower
+Large allocations	Poor	Better
+DMA friendly	Yes	Usually No
+Visual Representation
+kmalloc
+Physical Memory
+
+1000
+1001
+1002
+1003
+1004
+
+Contiguous.
+
+vmalloc
+Physical Memory
+
+1000
+5000
+1200
+9000
+4000
+
+Scattered physically.
+
+Kernel maps them into one continuous virtual region.
+
+Freeing vmalloc Memory
+
+Use:
+
+vfree(ptr);
+
+Not:
+
+kfree(ptr);   // Wrong
+Allocation Failure
+
+Always check return values.
+
+Bad:
+
+buffer = kmalloc(1024,
+                 GFP_KERNEL);
+
+buffer[0] = 'A';
+
+If allocation fails:
+
+NULL pointer dereference
+Kernel crash
+
+Good:
+
+buffer = kmalloc(1024,
+                 GFP_KERNEL);
+
+if (!buffer)
+    return -ENOMEM;
+Typical Driver Example
+static int __init my_init(void)
+{
+    char *buffer;
+
+    buffer = kzalloc(1024,
+                     GFP_KERNEL);
+
+    if (!buffer)
+        return -ENOMEM;
+
+    printk(KERN_INFO "Memory allocated\n");
+
+    kfree(buffer);
+
+    return 0;
+}
+Memory Allocation in Interrupts
+
+Suppose:
+
+irqreturn_t my_isr(...)
+{
+    char *buf;
+
+    buf = kmalloc(100,
+                  GFP_ATOMIC);
+
+    ...
+}
+
+Correct because ISR cannot sleep.
+
+Using:
+
+kmalloc(100,
+        GFP_KERNEL);
+
+inside ISR is a common interview trap.
+
+Frequently Asked Interview Questions
+1. Difference between kmalloc() and malloc()?
+
+Answer:
+
+malloc() → User space
+kmalloc() → Kernel space
+2. Difference between kmalloc() and vmalloc()?
+
+Answer:
+
+kmalloc() → Physically contiguous memory
+vmalloc() → Virtually contiguous, physically non-contiguous memory
+3. Difference between kmalloc() and kzalloc()?
+
+Answer:
+
+kmalloc() → Memory contents undefined
+kzalloc() → Memory initialized to zero
+4. What is GFP_KERNEL?
+
+Answer:
+
+Normal allocation flag used in process context; allocation may sleep.
+
+5. What is GFP_ATOMIC?
+
+Answer:
+
+Allocation flag used when sleeping is not allowed, such as interrupt context.
+
+6. Why can't ISR use GFP_KERNEL?
+
+Answer:
+
+GFP_KERNEL may sleep, but interrupt handlers cannot sleep.
+
+7. Why must allocation return values be checked?
+
+Answer:
+
+Allocation can fail. Using a NULL pointer can crash the kernel.
+
+Mini Revision
+
+Remember these six items:
+
+kmalloc()
+kzalloc()
+kfree()
+
+vmalloc()
+vfree()
+
+GFP_KERNEL
+GFP_ATOMIC
+Memory Flow
+Allocate
+   ↓
+Use
+   ↓
+Free
+kmalloc()
+   ↓
+kfree()
+
+vmalloc()
+   ↓
+vfree()
