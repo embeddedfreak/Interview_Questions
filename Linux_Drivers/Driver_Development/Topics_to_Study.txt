@@ -445,6 +445,19 @@ alloc_chrdev_region(&dev_num,
                      1,
                      "mydevice");
 
+alloc_chrdev_region is a Linux kernel function used to dynamically allocate a range of character device numbers. 
+It allows your driver to request a specific number of minor numbers without needing to hardcode a major number, thereby preventing conflicts with other drivers.
+
+syntax:
+
+int alloc_chrdev_region(dev_t *dev, unsigned int firstminor, unsigned int count, const char *name);
+
+dev: Pointer to a dev_t variable. 
+Upon successful allocation, this will hold the newly assigned major number and the first minor number.
+firstminor: The first minor number of the requested range (typically 0).
+count: The number of minor device numbers you are requesting.
+name: The name of the driver or associated device, which will show up in /proc/devices
+
 Meaning:
 
 Allocate:
