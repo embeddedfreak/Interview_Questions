@@ -1,0 +1,41 @@
+Round 1:
+Date: 02 July 2026
+HR Name: Kishore Samala
+Interviewer Name: Ricardo`
+
+WAP for merging 2 unsorted linked lists.
+
+WAP to find the position of rightmost set bit.
+
+Predict the output
+
+1) char* ch = "Hello";
+char ch[] = "Hello";
+
+What is the size of ch?
+
+2)
+int x = 10;
+printf("%d", x+++x);
+ output?
+
+3) 
+
+int a = 10;
+int *p = &10;
+
+printf("%d %d\n", *p++, (*p)++);
+
+Explain IPC, pipe and FIFO
+
+Driver debugging techniques.
+Explain structure of Character driver?
+How it works.
+If I2C master sends data to some slave addess and if slave is not present? How master comes to know.
+If  GPIO connected to LED and LED doesnt glow, how do you debug?
+Explain the detection of GPU.
+Explain on the drivers that I have written. V4L2 and DRM.
+Explain INterrupt in driver and bottom half
+
+
+
