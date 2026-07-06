@@ -1,0 +1,23 @@
+Round 1:
+Date: 06 July 2026
+HR Name: Naveen Balaji
+Interviewer Name: Nandakishore.u
+
+Asked on DRM(Digital Right Management)
+
+Difference between different codecs.
+
+Which codec is better and why.
+
+How to reduce the latency
+
+How buffers are managed while streaming
+
+How Cpp evolved from C.
+
+WAP for Base class as Arithmetic and derived as substract and add. crate a pointer and call it to substract and add.
+
+Implement friend function.
+
+
+
