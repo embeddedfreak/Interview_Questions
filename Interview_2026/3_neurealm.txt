@@ -1,0 +1,22 @@
+Round 1:
+Date: 08 July 2026
+HR Name: Parangoma
+Interviewer Name: Mac paul
+
+Asked on what I have done in DRM.
+How planes are combined? is it DPU or GPU that does this.
+How memory will be allocated for dma buffers? Which API is used.
+How the mapping of virtual memory done for these buffers?
+How we write into the registers in kernel space? using iomem
+Explain the buffer flow from FB to HDMI.
+How buffers are allocated? types of buffer allocation.
+
+Explain interrupt in kernel space.
+Explain mutex and spin lock in kernel space. WHere it is used?
+
+WAP for reversing the bits in given number
+0x00000003
+0xc000000
+
+
+
