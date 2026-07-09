@@ -1,0 +1,45 @@
+Senior Linux Display Driver Development Engineer
+Bangalore, India
+Engineering
+81234
+mail_outline
+Get future jobs matching this search
+
+or
+Job Description
+
+WHAT YOU DO AT AMD CHANGES EVERYTHING 
+
+At AMD, our mission is to build great products that accelerate next-generation computing experiences—from AI and data centers, to PCs, gaming and embedded systems. Grounded in a culture of innovation and collaboration, we believe real progress comes from bold ideas, human ingenuity and a shared passion to create something extraordinary. When you join AMD, you’ll discover the real differentiator is our culture. We push the limits of innovation to solve the world’s most important challenges—striving for execution excellence, while being direct, humble, collaborative, and inclusive of diverse perspectives. Join us as we shape the future of AI and beyond.  Together, we advance your career.  
+
+
+THE ROLE:
+We are seeking a Senior Linux Display Driver Development Engineer to own and drive display enablement for AMD platforms from pre-silicon architecture through post-silicon product delivery. This is a high-impact, cross-functional role at the intersection of the Linux kernel, display hardware, and graphics software stacks.
+In this role, you will help shape production-quality display solutions across AMD platforms, working closely with hardware, graphics, platform, validation, and open-source software teams. You will influence display architecture, enable advanced display features, debug complex system-level issues, and help deliver stable, high-performance display experiences for AMD products.
+ 
+THE PERSON:
+The ideal candidate is a hands-on technical leader with strong ownership, curiosity, and problem-solving skills. You are comfortable working across hardware and software boundaries, collaborating with cross-functional teams, and driving complex technical issues to closure. You communicate clearly, manage priorities effectively, and bring a detail-oriented mindset to delivering high-quality engineering outcomes in a fast-paced environment.
+ 
+KEY RESPONSIBILITIES:
+Design, develop, and maintain Linux Display drivers based on the DRM/KMS framework.
+Own display enablement across modesetting, platform bring-up, stability, and regression handling.
+Develop and debug DisplayPort and eDP features, including link training, MST/SST, DSC, and compliance scenarios.
+Support display pipelines across HDMI, MIPI DSI, panels, overlays, and hardware display blocks.
+Collaborate with Mesa, Wayland, and X11 teams to enable end-to-end graphics and display functionality.
+Perform deep system-level debugging and root cause analysis across kernel, hardware, firmware, and graphics software layers.
+Drive technical issues to closure across development, validation, and product delivery cycles.
+Partner with cross-functional teams to manage priorities, improve execution, and deliver on program goals.
+Contribute to production-quality display software with a focus on performance, stability, maintainability, and scalability.
+PREFERRED EXPERIENCE:
+Demonstrated experience in Linux system software and display driver development.
+Strong expertise in DRM/KMS and Linux kernel internals, including DMA, interrupts, and memory management.
+Hands-on experience developing and debugging display interfaces such as DisplayPort, eDP, HDMI, and MIPI DSI.
+Strong proficiency in C/C++ and kernel-level debugging.
+Experience delivering production-quality code for complex hardware and software platforms.
+Familiarity with Mesa, Wayland, X11, and end-to-end Linux graphics enablement.
+Knowledge of display pipelines, modesetting, link training, display compliance, and regression analysis.
+Proven ability to perform root cause analysis and debug complex system-level issues.
+Strong communication, ownership, prioritization, and cross-team collaboration skills.
+ACADEMIC CREDENTIALS:
+Bachelor’s or Master’s degree in Computer Engineering, Electrical Engineering, Computer Science, or a related field preferred.
+Equivalent practical experience will also be considered where applicable.
