@@ -70,3 +70,56 @@ Hint: (2 * num) + num + (num/2)
 	CLEAR_BIT(num, pos)
 	TOGGLE_BIT(num, pos)
 	CHECK_BIT_SET_OR_NOT(num, pos)
+
+28) How do I get a bit from an integer value in C?
+
+29) Macro to rotate bits (Right and Left Rotate).
+
+30) Find minimum and maximum of two integers without branching.
+
+--------------------------------------
+Additional Bitwise Interview Questions
+--------------------------------------
+
+31) Find the rightmost set bit.
+Hint: x & (-x)
+
+32) Find the position of the rightmost set bit.
+
+33) Find the position of the leftmost (MSB) set bit.
+
+34) Check whether a number is Odd or Even using bitwise.
+
+35) Set the rightmost unset bit.
+
+36) Toggle all bits of a number.
+
+37) Extract a nibble from a number.
+
+38) Replace a nibble in a number.
+
+39) Merge two numbers using a mask.
+
+40) Bit masking for register manipulation.
+
+41) Pack multiple values into an integer.
+
+42) Unpack multiple values from an integer.
+
+43) Arithmetic vs Logical right shift.
+
+44) Detect machine endianess.
+
+45) Reverse bytes in a 32-bit integer.
+
+46) Find the missing number using XOR.
+
+47) Find the duplicate number using XOR.
+
+48) Generate Gray code.
+
+49) Check whether a binary number is palindrome.
+
+50) Find the next power of 2.
+
+51) Round up/down to the nearest power of 2.
