@@ -19,4 +19,43 @@ WAP for reversing the bits in given number
 0xc000000
 
 
+Round 2:
+Date: 17 July 2026
+HR Name: Parangoma
+Interviewer Name: Faiz
+
+Write a gstreamer plugin a simple one.
+WAP for swapping 7th and 2nd nibble.
+What is container_of macro.
+Explain DRM framework.
+What in AVI infoframe in HDMI.
+What is Hsync and Vsync
+for 60fps how many vsync will be there. What is the time frame between them.
+YUV subsampling explain.
+YUV and P010 difference.
+How its stored in memory, packed, semiplanar, planar.
+How the frame looks if we force YUV pixels to read as RGB
+size of array calculated passing arr to function why its 4bytes.
+size of structure given a struction definition.
+struct example1 {
+	uint8_t a; //2
+	uint16_t b;//2
+	uint8_t c; //4
+	uint32_t d; // 4
+	uint8_t e; //4
+}
+dmabuf, usrptr, mmap.
+Difference between mmap and dmabuf where they are used.
+Why ioremap is used.
+What is MMU is it a hardware?
+
+How interrupt number is decided?
+Is interrupt number given in DT is same as Interrupt number got while doing irq_request().
+Why both are different?
+What is platform driver?
+Can a driver act both as platform and character driver?
+
+
+
+
 
