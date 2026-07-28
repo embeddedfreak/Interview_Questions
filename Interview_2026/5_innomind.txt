@@ -1,0 +1,11 @@
+Round 1:
+Date: 28 July 2026
+HR Name: Reddi Prasad Nagasarala
+Interviewer Name: kkommalapati
+
+
+Explain display pipeline.
+Explain how camera preview works.
+Explain DRM framework.
+Explain what is fence and underrun.
+
