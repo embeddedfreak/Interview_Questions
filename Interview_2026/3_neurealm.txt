@@ -55,6 +55,16 @@ Why both are different?
 What is platform driver?
 Can a driver act both as platform and character driver?
 
+Round 3:
+Date: 31st July 2026
+Manager Name: Anoop Gopalakrishnapillai.
+
+Write a gstreamer pipeline for display.
+How you seperate audio and video? which plugin/element is used
+HDMI bandwidth require for 4k 120Hz?
+WHat is CEC?
+What is eARC? Dolby atmos?
+Challenges you have faced during working on display related projects?
 
 
 
