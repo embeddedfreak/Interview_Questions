@@ -1,0 +1,16 @@
+Round 1:
+Date: 4 Aug 2026
+HR Name: aravinth.ganesh
+Interviewer Name: sarathkumar.thiruppathi
+
+
+1) What is exposure, Shutter speed, fps in camera.
+2) Explain how do you configure gains for specific camera.
+3) Difference between Thread and Process. Explain wrt to my project.
+4) What is deadlock? How to avoid deadlock.
+5) What is template class or something in Cpp.
+6) How can private member be accessible outside the class?
+7) WAP to right rotate a array.
+8) WAP using dynamic memory allocation, multiple 2x2 matrix.
+9) Count number of set bits in a given number.
+
