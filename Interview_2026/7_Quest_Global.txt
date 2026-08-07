@@ -1,0 +1,16 @@
+Round 1:
+Date: 7 Aug 2026
+HR Name: hefsiba.nd
+Interviewer Name: Kumar Varum.
+
+
+1) Pillars of OOPS explain.
+2) What is friend function?
+3) Inline function
+4) What is  STL library?
+5) Explain multimap and map.
+6) Store elements in map and vector.
+7) Reverse a string
+8) Reverse string in linkedlist.
+9) Design patterns? 
+
