@@ -1,0 +1,21 @@
+Round 2:
+HR Sukanya
+Interviewer: Ashish
+Date: 13th August 2026
+
+Explain the rendering of raw image till the display.
+int main(int argc, char* argv)
+{
+	char* name;
+	name = "Gladson";
+	printf("My Name is: %s", name); 
+}
+
+What will be the warning?
+What will be the error?
+What will be the output?
+
+gcc -o test.o ./test.c
+
+What happens if I execute this program multiple times?
+Is there any change in the output?
