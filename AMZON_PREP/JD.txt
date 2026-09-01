@@ -1,0 +1,91 @@
+SDE II - Multimedia, Hardware Compute Group
+Job ID: 10372183 | ADCI - BLR 14 SEZ
+Description
+Jumpstart your career in advance display technology! Join our innovative team as an SDE-II Display Engineer and work on Dolby Vision integration and HDMI 2.1b standards.
+
+As our Display Engineer (SDE-II), you'll have the exciting opportunity to:
+
+Work directly with Dolby Vision technology, enhancing visual experiences in embedded systems
+Gain expertise in HDMI 2.1b compliance under the guidance of senior engineers
+Collaborate on optimizing display pipelines for the advanced SoC
+Learn from industry experts and grow your skills in Linux-based display technologies
+Contribute to projects that will impact millions of devices worldwide
+This role offers a perfect balance of challenge and support. You'll work on complex display technologies while receiving mentorship from experienced SDE-III engineers. If you're ready to prove your mettle and accelerate your career in embedded display systems, this is your launchpad to success!
+
+Key job responsibilities
+- Assist in the integration and optimization of Dolby Vision technology for embedded display systems, focusing on color accuracy and dynamic tone mapping.
+
+- Support the implementation of HDMI 2.1b standards, ensuring compliance and robust integration in our products.
+
+- Collaborate with the SoC team to optimize the display pipeline and enable support for new display features.
+
+- Develop and maintain display drivers and software for Linux-based embedded systems.
+
+- Contribute to panel integration efforts, including bring-up and optimization for MIPI-DSI and HDMI interfaces.
+
+- Assist in debugging and resolving display-related issues across various embedded devices and platforms.
+
+- Utilize Yocto to create and maintain custom Linux distributions for display-centric devices.
+
+- Implement and optimize display drivers within the Linux kernel, with a focus on DRM/KMS subsystems.
+
+- Use Gerrit for code reviews and GitLab for version control and CI/CD pipelines.
+
+- Analyze and help resolve signal integrity issues in high-speed display interfaces under the guidance of senior engineers.
+
+- Contribute to the development of display-related documentation and specifications.
+
+- Participate in open-source display driver development and engage with the Linux community.
+
+- Continuously learn and stay updated on emerging display technologies and Linux kernel developments.
+
+A day in the life
+Throughout your day, you'll interact with:
+- Your display team and SDE-III mentor
+- Hardware engineers specializing in display interfaces
+- The SoC development team
+- Panel manufacturers' technical support (under NDA)
+Your main focus will be on:
+
+- Display panel integration and optimization
+- MIPI-DSI and HDMI driver development
+- Resolving panel-specific issues (e.g., flickering, color accuracy)
+- Implementing and testing new display features (like Dolby Vision)
+- Ensuring compatibility between SoC display interfaces and various panels
+- Optimizing power consumption for different display configurations
+- Contributing to the company's proprietary display subsystems
+
+About the team
+The Display Engineering team, part of the broader Multimedia Team, develops advanced display solutions for embedded devices. We work alongside Graphics, Camera, Video Codec, and secure component experts, focusing on creating technologies that excel in visual quality, power efficiency, and performance. We value innovation, collaboration, and continuous learning. As a team member, you'll contribute to integrated multimedia projects, gain insights into secure pipelines, and have opportunities to expand your skills across various domains.
+Join us to shape the future of display technology and impact millions of users' visual experiences.
+
+Basic Qualifications
+- 5+ years of embedded firmware development experience
+- 2+ years of non-internship design or architecture (design patterns, reliability and scaling) of new and existing systems experience
+- Experience in embedded development in C/C++
+- Strong experience with V4L2 Memory-to-Memory (V4L2M2M) driver development for video codec implementations
+- Proven track record in video decoder and encoder driver development for both legacy codecs (H.264, H.265, VP9, MPEG-2/4) and advanced codecs (AV1, VVC)
+- Hands-on experience with 4K video processing and high-resolution video pipeline optimization
+- Proficiency in Linux kernel driver development and multimedia subsystem architecture
+- Experience with video codec validation frameworks and conformance testing tools such as Fluster
+- Strong understanding of V4L2 framework, Media Controller API, and video buffer management
+
+Preferred Qualifications
+- 5+ years of full software development life cycle, including coding standards, code reviews, source control management, build processes, testing, and operations experience
+- Master's degree in computer science or equivalent
+- Pre-Silicon and SoC Bringup
+- Experience with pre-silicon validation methodologies and early hardware bring-up processes
+- Proven ability to work with SoC bringup activities including driver integration during early silicon phases
+- Familiarity with hardware emulation platforms and FPGA-based validation environments
+- Security and Protected Content
+- Knowledge of secure video path implementation and content protection mechanisms
+- Experience with DRM (Digital Rights Management) integration for protected video playback
+- Understanding of TEE (Trusted Execution Environment) integration for secure video processing
+- Additional Technical Skills
+- Experience with GStreamer, FFmpeg, or similar multimedia frameworks
+- Knowledge of video codec specifications and bitstream analysis
+- Familiarity with performance profiling and optimization techniques for video pipelines
+- Experience with continuous integration and automated testing frameworks
+- Understanding of power management and thermal optimization for video workloads
+
+Our inclusive culture empowers Amazonians to deliver the best results for our customers. If you have a disability and need a workplace accommodation or adjustment during the application and hiring process, including support for the interview or onboarding process, please visit https://amazon.jobs/content/en/how-we-hire/accommodations for more information. If the country/region you’re applying in isn’t listed, please contact your Recruiting Partner.

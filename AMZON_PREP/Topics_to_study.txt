@@ -1,0 +1,1041 @@
+This role is much more than a generic SDE-II role. Based on the JD, I’d prepare around Linux kernel multimedia/display + video codecs + embedded/SoC bring-up, with HDMI/MIPI/Dolby Vision as the display-specific layer.
+
+Priority order
+Priority	Area	What you should be able to discuss
+🔴 P0	Linux Kernel + Drivers	Driver architecture, device model, probe/remove, interrupts, DMA, synchronization, memory
+🔴 P0	V4L2 / V4L2M2M	Video devices, queues, vb2, mem2mem framework, controls, buffer lifecycle
+🔴 P0	Video Codecs	H.264, H.265/HEVC, VP9, AV1, MPEG-2/4, VVC; decode pipeline and bitstreams
+🔴 P0	Media Controller API	Entities, pads, links, pipelines, subdevices
+🔴 P0	Display Pipeline / DRM-KMS	CRTC, plane, encoder, connector, framebuffer, atomic modesetting
+🔴 P0	C/C++ + Embedded	Pointers, memory, concurrency, bit manipulation, debugging, design
+🔴 P0	SoC Bring-up	Boot flow, device tree, early silicon, FPGA/emulation, hardware/software debugging
+🟠 P1	MIPI-DSI	DSI architecture, D-PHY, command/video mode, panel initialization
+🟠 P1	HDMI 2.1	TMDS/FRL, EDID, HDCP, link training, DSC, VRR, HDR
+🟠 P1	HDR / Dolby Vision	HDR10, PQ, color spaces, tone mapping, metadata, Dolby Vision concepts
+🟠 P1	Video Frameworks	GStreamer, FFmpeg, V4L2 integration
+🟠 P1	Memory / DMA	DMA-BUF, IOMMU, CMA, cache coherency, zero-copy
+🟠 P1	Performance	4K/8K bandwidth, latency, FPS, memory bandwidth, profiling
+🟠 P1	Secure Video	TEE, DRM, HDCP, secure video path
+🟡 P2	Yocto	Recipes, layers, BitBake, kernel customization, image generation
+🟡 P2	Testing	Fluster, codec conformance, automated testing
+🟡 P2	Git/Gerrit/CI	Code review, rebasing, CI/CD
+🟡 P2	Power/Thermal	DVFS, clocks, regulators, thermal throttling
+1. Linux Kernel Driver Development — highest priority
+
+You should be very comfortable here.
+
+Study
+Linux kernel architecture
+Kernel vs userspace
+Character/device drivers
+Platform drivers
+Device Tree
+probe() / remove()
+Device model
+struct device
+platform_device
+platform_driver
+Kernel modules
+devm_* APIs
+Interrupt handling
+Threaded IRQs
+Workqueues
+Tasklets
+Kernel threads
+Mutex vs spinlock
+Wait queues
+Completions
+Atomic operations
+Refcounting
+RCU basics
+Kernel logging
+debugfs
+sysfs
+ioctl
+mmap
+DMA
+Interview-level questions
+
+You should be able to answer:
+
+What happens when a platform driver is probed?
+
+How does Device Tree information reach the driver?
+
+When would you use a mutex vs spinlock?
+
+How would you debug a kernel crash?
+
+What happens if an interrupt arrives while a resource is being freed?
+
+How would you design a driver for asynchronous hardware?
+
+2. V4L2 — extremely important
+
+This JD explicitly calls out:
+
+V4L2 Memory-to-Memory driver development
+
+So expect serious questions here.
+
+Study:
+
+V4L2 architecture
+/dev/videoX
+V4L2 ioctl interface
+V4L2 controls
+Video nodes
+Capture vs output
+M2M devices
+v4l2_m2m
+videobuf2 / vb2
+Buffer states
+DMA buffers
+Streaming
+Format negotiation
+VIDIOC_* ioctls
+REQBUFS
+QBUF
+DQBUF
+STREAMON
+STREAMOFF
+Buffer ownership
+Poll/select
+Timestamp handling
+Understand this flow deeply
+Userspace
+   |
+   | V4L2 ioctl
+   v
+V4L2 Core
+   |
+   v
+V4L2 M2M
+   |
+   v
+videobuf2
+   |
+   v
+DMA / IOMMU
+   |
+   v
+Hardware Codec
+
+Be able to explain exactly what happens when an application decodes a frame.
+
+3. Media Controller API
+
+This is another explicit requirement.
+
+Understand:
+
+Sensor
+  |
+  v
+CSI
+  |
+  v
+ISP
+  |
+  v
+Video Processing
+  |
+  v
+Encoder / Decoder
+  |
+  v
+Display
+
+Study:
+
+Media entities
+Pads
+Links
+Subdevices
+Pipelines
+Media graph
+Format propagation
+Link validation
+Dynamic routing
+
+You should understand commands/tools such as:
+
+media-ctl
+v4l2-ctl
+
+A good interview question is:
+
+How would you represent a multimedia pipeline containing multiple hardware blocks in Linux?
+
+4. Video Codecs — very important
+
+The JD specifically mentions:
+
+H.264
+H.265 / HEVC
+VP9
+MPEG-2/4
+AV1
+VVC
+
+You don't necessarily need to memorize every codec specification.
+
+Instead understand:
+
+Decoder architecture
+Compressed Bitstream
+        |
+        v
+   Parser
+        |
+        v
+Entropy Decode
+        |
+        v
+Inverse Transform
+        |
+        v
+Motion Compensation
+        |
+        v
+Reference Frames
+        |
+        v
+Post Processing
+        |
+        v
+Decoded Frame
+
+Know concepts such as:
+
+I/P/B frames
+GOP
+Reference frames
+Motion vectors
+Macroblocks / coding tree units
+Entropy coding
+CABAC
+CAVLC
+DPB
+SPS/PPS
+VPS
+Slice
+NAL units
+Bitstream parsing
+Resolution
+Chroma formats
+
+Especially:
+
+H.264 → H.265 → VP9 → AV1
+
+Understand the major architectural differences.
+
+5. 4K Video Pipeline
+
+This is likely to be an important Amazon interview discussion.
+
+Know:
+
+4K = 3840 × 2160
+60 FPS
+10-bit video
+YUV420 / YUV422 / YUV444
+NV12
+P010
+RGB
+Memory bandwidth
+DMA
+Cache effects
+Zero-copy
+Buffer count
+Pipeline latency
+
+For example, understand why:
+
+Decoder → CPU memcpy → GPU → Display
+
+is usually inferior to:
+
+Decoder
+   |
+   | DMA-BUF
+   v
+GPU/Display
+
+Understand zero-copy pipelines very well.
+
+6. DMA-BUF / IOMMU / Memory
+
+This connects V4L2, codecs and display.
+
+Study:
+
+Physical vs virtual address
+DMA address
+IOVA
+IOMMU
+DMA mapping
+DMA-BUF
+DMA-BUF heaps
+CMA
+Reserved memory
+Cache coherency
+Scatter-gather
+Contiguous vs non-contiguous memory
+Buffer sharing between devices
+
+Be able to explain:
+
+How can a video decoder write a frame into memory and have the display hardware consume that frame without copying it through the CPU?
+
+7. DRM/KMS — very important
+
+The JD specifically says:
+
+Linux kernel, with a focus on DRM/KMS subsystems
+
+Study the DRM display architecture:
+
+Framebuffer
+    |
+    v
+Plane
+    |
+    v
+CRTC
+    |
+    v
+Encoder
+    |
+    v
+Connector
+    |
+    v
+Display
+
+Know:
+
+DRM
+KMS
+CRTC
+Plane
+Primary plane
+Overlay plane
+Cursor plane
+Encoder
+Connector
+Bridge
+Panel
+Framebuffer
+Atomic modesetting
+VBlank
+Page flip
+EDID
+Hotplug
+Display modes
+DRM properties
+DRM atomic state
+Very important:
+
+Understand atomic modesetting.
+
+You should be able to explain:
+
+What happens when userspace changes resolution or plane configuration?
+
+8. MIPI-DSI + Panel Bring-up
+
+Study:
+
+MIPI
+MIPI DSI
+D-PHY
+Lanes
+HS/LP modes
+Clock lane
+Data lanes
+Command mode
+Video mode
+DCS commands
+Panel initialization
+Reset sequence
+Power sequencing
+
+Typical bring-up:
+
+Power rails
+   ↓
+GPIO reset
+   ↓
+Clock
+   ↓
+MIPI D-PHY
+   ↓
+DSI controller
+   ↓
+Panel initialization commands
+   ↓
+Display mode
+   ↓
+Enable streaming
+
+Know how you'd debug:
+
+Blank screen
+Flickering
+Wrong colors
+Wrong resolution
+Intermittent display
+Panel not detected
+MIPI errors
+9. HDMI 2.1 / HDMI 2.1b
+
+This is a major role-specific topic.
+
+Study:
+
+HDMI architecture
+EDID
+DDC
+Hot Plug Detect
+TMDS
+FRL
+HDMI 2.1
+Link training
+4K120
+8K
+DSC
+VRR
+ALLM
+HDR
+Audio
+HDCP
+eARC
+SCDC
+
+Especially understand the difference:
+
+HDMI 2.0
+    ↓
+TMDS
+
+HDMI 2.1
+    ↓
+FRL
+
+You should be able to troubleshoot:
+
+4K60 works but 4K120 doesn't. What would you investigate?
+
+Think about:
+
+EDID
+bandwidth
+FRL training
+cable
+PHY
+clock
+link errors
+DSC
+sink capabilities
+source configuration
+10. HDR / Dolby Vision
+
+This is one of the most role-specific areas.
+
+You don't need to become a Dolby Vision certification expert, but understand the concepts.
+
+Study:
+
+Color
+RGB
+YCbCr
+YUV
+BT.601
+BT.709
+BT.2020
+Rec.709
+Rec.2020
+Transfer functions
+Gamma
+PQ / ST 2084
+HLG
+HDR
+SDR vs HDR
+HDR10
+HDR10+
+Dolby Vision
+Static metadata
+Dynamic metadata
+Tone mapping
+Color volume
+
+Understand:
+
+HDR Content
+     ↓
+Metadata
+     ↓
+Tone Mapping
+     ↓
+Color Conversion
+     ↓
+Display Pipeline
+     ↓
+Panel
+
+A very likely discussion:
+
+How does HDR content get converted to a display with different brightness capabilities?
+
+11. Secure Video / DRM
+
+Because this is an Amazon multimedia role, don't ignore this.
+
+Study:
+
+DRM = Digital Rights Management
+HDCP
+TEE
+Secure boot
+Secure memory
+Trusted applications
+Secure video path
+Protected buffers
+Hardware-backed key storage
+Widevine concepts
+
+Understand the architecture:
+
+Protected Content
+       |
+       v
+   Secure Decoder
+       |
+       v
+ Protected Buffer
+       |
+       v
+ Secure Display Path
+       |
+       v
+     Panel
+
+Know why protected content shouldn't be exposed to normal userspace memory.
+
+12. GStreamer + FFmpeg
+
+Know enough to debug real pipelines.
+
+GStreamer
+
+Understand:
+
+Source
+  ↓
+Demuxer
+  ↓
+Parser
+  ↓
+Decoder
+  ↓
+Converter
+  ↓
+Sink
+
+Know:
+
+Elements
+Pads
+Caps
+Pipelines
+State machine
+Buffers
+Events
+Queries
+Plugins
+Hardware acceleration
+
+Be comfortable reading something like:
+
+gst-launch-1.0 filesrc location=test.mp4 ! \
+  qtdemux ! h264parse ! \
+  v4l2h264dec ! \
+  videoconvert ! \
+  autovideosink
+
+Also understand how V4L2 hardware codecs integrate with GStreamer.
+
+13. Fluster / Codec Conformance
+
+Study:
+
+What codec conformance means
+Test vectors
+Expected vs actual decoded output
+Bitstream validation
+Frame comparison
+Regression testing
+Error classification
+
+Understand how you'd investigate:
+
+One AV1 conformance vector fails while 99 others pass.
+
+Think:
+
+Test vector
+    ↓
+Parser
+    ↓
+Driver
+    ↓
+Hardware
+    ↓
+Decoded frame
+    ↓
+Comparison
+    ↓
+Failure analysis
+14. SoC Bring-up / Pre-Silicon
+
+This could differentiate you from candidates who only know Linux.
+
+Study:
+
+SoC architecture
+Boot ROM
+Bootloader
+Firmware
+Linux
+Device Tree
+Clock/reset
+Power domains
+Regulators
+GPIO
+IOMMU
+Interrupt controller
+PCIe basics
+MMIO
+Register programming
+Pre-silicon
+
+Know:
+
+FPGA validation
+Hardware emulation
+Simulation
+Virtual platforms
+Register models
+Firmware validation
+Early driver development
+
+Typical question:
+
+You have new silicon and the display is completely blank. Walk me through your debugging process.
+
+You should have a systematic answer rather than randomly checking registers.
+
+15. Yocto
+
+Don't spend weeks here, but know the fundamentals.
+
+Study:
+
+Yocto Project
+BitBake
+Recipes
+Layers
+.bb
+.bbappend
+Machine configuration
+Distribution configuration
+Image recipes
+SDK
+Root filesystem
+Kernel recipes
+Patches
+
+Know how to:
+
+Modify a kernel driver and produce a new embedded Linux image containing it.
+
+16. Performance Optimization
+
+Very important for SDE-II.
+
+Study how to reason about:
+
+Throughput
+Resolution × FPS × bytes/pixel
+Latency
+Capture
+ ↓
+Decode
+ ↓
+Process
+ ↓
+Display
+Bottlenecks
+CPU
+GPU
+Codec hardware
+Memory bandwidth
+DMA
+Bus bandwidth
+Cache
+Synchronization
+Display refresh rate
+
+Tools/concepts:
+
+perf
+ftrace
+trace-cmd
+kernel tracepoints
+/sys/kernel/debug
+DRM debug
+V4L2 tracing
+CPU profiling
+Memory profiling
+17. Power / Thermal
+
+Understand:
+
+DVFS
+Clock gating
+Power gating
+Runtime PM
+System suspend/resume
+Thermal zones
+Thermal throttling
+Regulators
+Power domains
+
+Especially:
+
+How would you reduce power consumption when playing 4K video?
+
+Think about:
+
+Hardware decode
+Zero-copy
+Clock frequency
+Memory bandwidth
+CPU wakeups
+Display refresh rate
+Dynamic power domains
+18. C/C++ — SDE-II level
+
+Don't prepare only LeetCode-style C++.
+
+For this role, embedded C is particularly important.
+
+C
+Pointers
+Function pointers
+Structs
+Unions
+Bitfields
+volatile
+const
+Alignment
+Padding
+Endianness
+Memory allocation
+Stack vs heap
+Undefined behavior
+Race conditions
+Ring buffers
+Linked lists
+Bit manipulation
+C++
+RAII
+Smart pointers
+Move semantics
+STL
+Templates
+Virtual functions
+Polymorphism
+Design patterns
+Threading
+19. Embedded System Design
+
+Because this is SDE-II, expect design questions.
+
+Practice designing:
+
+Example 1
+
+Design a Linux video decoder driver.
+
+Example 2
+
+Design a 4K60 hardware video pipeline.
+
+Example 3
+
+Design a zero-copy video pipeline from decoder to display.
+
+Example 4
+
+Design a display subsystem supporting multiple panels.
+
+Example 5
+
+Design a video conformance testing framework.
+
+For every design, discuss:
+
+Interfaces
+Data flow
+Buffer management
+Synchronization
+Error handling
+Performance
+Power
+Scalability
+Testing
+Debugging
+20. Debugging Scenarios — very high priority
+
+I would spend substantial time here.
+
+Prepare structured answers for:
+
+Display
+Screen is completely blank
+Screen flickers
+Wrong resolution
+Wrong refresh rate
+Colors are wrong
+Green/purple artifacts
+Only some panels work
+HDMI works at 1080p but not 4K
+4K60 works but 4K120 fails
+Display freezes after suspend/resume
+Video
+Decoder hangs
+Frames are corrupted
+Dropped frames
+Memory leak
+Increasing latency
+Random kernel crash
+One codec fails while another works
+4K playback consumes too much CPU
+Video/audio synchronization problem
+Kernel
+Kernel panic
+Use-after-free
+Deadlock
+Race condition
+DMA fault
+IOMMU fault
+Interrupt storm
+
+For each scenario, practice:
+
+Observe → Hypothesize → Instrument → Isolate → Fix → Regression test
+
+21. Git / Gerrit / CI
+
+Know:
+
+git clone
+git branch
+git checkout
+git rebase
+git cherry-pick
+git bisect
+git reset
+git revert
+git stash
+
+And Gerrit concepts:
+
+Change
+Review
+Patchset
+Code review
+Approvals
+Rebase
+Conflict resolution
+
+Also understand CI/CD for:
+
+Code
+ ↓
+Build
+ ↓
+Static analysis
+ ↓
+Unit tests
+ ↓
+Driver tests
+ ↓
+Hardware tests
+ ↓
+Conformance
+ ↓
+Release
+22. Amazon SDE-II behavioral preparation
+
+Don't neglect this.
+
+Prepare 8–10 STAR stories around:
+
+Difficult bug
+Production issue
+Technical disagreement
+Ownership
+Ambiguous problem
+Performance optimization
+Failure
+Mentoring
+Delivering under pressure
+Improving an existing system
+Cross-team collaboration
+Working with hardware teams
+
+Amazon will likely probe deeply into your individual contribution.
+
+Be ready for:
+
+What exactly did you implement?
+
+Why did you choose that design?
+
+What alternatives did you consider?
+
+What was the measurable impact?
+
+What went wrong?
+
+How did you know your fix worked?
+
+My recommended study roadmap
+
+If your interview is coming soon, I would not study every topic equally.
+
+Phase 1 — Core Linux multimedia
+
+Week 1
+
+C
+Linux kernel fundamentals
+Device drivers
+Device Tree
+DMA
+Interrupts
+Synchronization
+Memory management
+
+Week 2
+
+V4L2
+V4L2M2M
+videobuf2
+DMA-BUF
+Media Controller API
+
+Week 3
+
+H.264
+H.265
+VP9
+AV1
+Codec architecture
+Bitstreams
+DPB/reference frames
+4K pipeline optimization
+Phase 2 — Display
+
+Week 4
+
+DRM/KMS
+Atomic modesetting
+Planes
+CRTC
+Connector
+Encoder
+Bridges
+EDID
+Page flip/VBlank
+
+Week 5
+
+MIPI-DSI
+D-PHY
+Panel bring-up
+HDMI
+FRL
+TMDS
+HDCP
+DSC
+VRR
+HDR
+Phase 3 — Role-specific
+
+Week 6
+
+Dolby Vision concepts
+HDR10/HDR10+
+Color management
+Tone mapping
+Secure video path
+TEE/DRM
+GStreamer
+FFmpeg
+Fluster
+Phase 4 — SDE-II
+
+Week 7
+
+SoC bring-up
+Pre-silicon
+FPGA/emulation
+Performance
+Power/thermal
+Yocto
+
+Week 8
+
+Linux/display debugging scenarios
+Driver design
+Multimedia system design
+Coding
+Amazon Leadership Principles
+Mock interviews
+If you have only 2 weeks
+
+I'd narrow it down aggressively:
+
+Day 1–2: C + Linux kernel + driver architecture
+Day 3–4: V4L2 + V4L2M2M + videobuf2
+Day 5: Media Controller + DMA-BUF + IOMMU
+Day 6–7: H.264/H.265/VP9/AV1 + 4K pipeline
+Day 8: DRM/KMS + atomic modesetting
+Day 9: MIPI-DSI + panel bring-up
+Day 10: HDMI 2.1 + EDID + FRL + HDCP
+Day 11: HDR + Dolby Vision + color management
+Day 12: GStreamer + FFmpeg + Fluster
+Day 13: SoC bring-up + debugging scenarios
+Day 14: SDE-II system design + C coding + behavioral
+
+The 10 topics I'd absolutely master
+
+If you want the shortest possible list:
+
+Linux kernel driver development
+V4L2 + V4L2M2M + videobuf2
+Media Controller API
+DMA-BUF + IOMMU + zero-copy
+H.264/H.265/VP9/AV1 decoder architecture
+DRM/KMS + atomic modesetting
+MIPI-DSI + panel bring-up
+HDMI 2.1/2.1b + EDID/FRL/HDCP
+HDR/Dolby Vision + color/tone mapping
+SoC bring-up + systematic display/video debugging
+
+One important observation: despite the title emphasizing Display, the Basic Qualifications make V4L2M2M + video codec driver development a particularly strong signal. I would therefore prepare this as a Linux Multimedia/Video Driver SDE-II interview with a strong Display/HDMI specialization, rather than as a pure display-engineering interview.
