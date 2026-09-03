@@ -1,0 +1,36 @@
+Date: Sept 3 2026
+HR: Selin
+Interviewer: Ravi
+
+Weston wayland x11 difference
+KMS and DRM difference
+
+Mutex and Semaphore difference
+Where you have used mutex in project
+Bottom half and top half
+SoftIRQ, Tasket and Workqueue
+
+Implement memcpy in c
+String is given character count should be printed in C
+H : 1
+e : 1
+l : 2
+o : 1
+
+Structure padding avoiding techniques
+typdef struct {
+	char a;
+	double d;
+	char ch;
+	double dd;
+	int num;
+	char ch1;
+}
+
+what is the size of this structure? 
+
+What are bit fields where it is used? how bit fields are different from avoiding padding.
+
+
+
+
