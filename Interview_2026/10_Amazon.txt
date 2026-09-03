@@ -1,0 +1,17 @@
+Date: Sept 2 2026
+HR: Riya
+Manager: Yuvraj
+
+1) Explain DRM architecture
+2) Given Linked lists l1 = 1->2->3 and l2 2->3->5
+get reverse of these and add both numbers
+321 + 532
+853
+
+3) Implement aligned_malloc with size and alignment is passed to it.
+4) Given a  stream of numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ....
+
+Find mean/Averge of N numbers.
+If numbers are less that N then nothing should be returned
+If numbers are more than N then need to discard the first numbers added
+And function should return the mean/avaerage of the numbers
