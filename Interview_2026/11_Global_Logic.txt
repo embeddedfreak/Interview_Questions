@@ -1,0 +1,46 @@
+HR: padakanti.shwetha
+Manager:
+Date: 23rd Sept 2026
+
+Why YUV is prefered over RGB in case of encoding.
+If we use YUV how much compression is achieved.
+How frame buffer work
+If TV is of 30Hz and if we give video of 60fps how it will play smoothly?
+Which takes more time and resource encoder or decoder?
+What is pts and dts?
+Who will provide the clock source/referance clock for the decoder?
+How resolution and other information about the encoded stream is passed to decoder?
+From user space to kernel space how data is transfered?
+Specifically how video buffers are transfered?
+How address translation takes place between userspace and Kernel space?
+
+If we have multiple planes who is responsible for embedding it into one?
+If I give you 2 frames and want to embed it on same plane but left half should have one frame and right half one frame?
+How do you do it? Explain the logic?
+What is I, P, B frame?
+Which frame needs less compression?
+Why P is require when we have B? Give example of situation where B frame is required?
+You have to predict based on previous and also future frames?
+What is SPS and PPS?
+SPS — Sequence Parameter Set
+
+PPS — Picture Parameter Set
+
+These contain information including things such as:
+
+resolution-related information
+
+profile
+
+level
+
+chroma format
+
+bit depth
+
+coding parameters
+
+WAP for printing 1,2, 3, 4 ---- 100 using 2 thread?
+Used local variable on these 2 threads.
+
+
