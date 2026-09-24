@@ -1,5 +1,5 @@
 HR: padakanti.shwetha
-Manager:
+Manager: Bhagirathi
 Date: 23rd Sept 2026
 
 Why YUV is prefered over RGB in case of encoding.

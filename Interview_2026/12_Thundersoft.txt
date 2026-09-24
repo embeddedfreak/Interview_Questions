@@ -1,0 +1,22 @@
+Lakshasoft Technology took my interview
+
+HR: Roja
+Date: 24th Sept 2026
+
+Explaing GPU Arm Mali Architecture
+Explain V4L2 framework
+
+Explain Device tree? Why its required?
+Which API is used to bind interrupt number to ISR.
+Difference between SOFTIRQ and TASKET? Given example in which instance its used.
+Explain What is Device descriptor in USB
+Explain what is enumberation in USB?
+What happens before enumeration?
+What is the sequence of it? How USB superspeed or High speed device is detected?
+Explain Booting sequence of Embedded platforms?
+How Application runs in embedded platforms
+How CPU cores are initialised?
+
+WAP to reverse a linked list?
+
+
