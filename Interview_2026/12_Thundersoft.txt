@@ -16,6 +16,11 @@ What is the sequence of it? How USB superspeed or High speed device is detected?
 Explain Booting sequence of Embedded platforms?
 How Application runs in embedded platforms
 How CPU cores are initialised?
+What is dma_core_init?
+Which API is used to allocate dma buffer or memory?
+What is MMU?
+How exaclty it will translate Virtual to Physical address?
+What is ioremap() what it does?
 
 WAP to reverse a linked list?
 
