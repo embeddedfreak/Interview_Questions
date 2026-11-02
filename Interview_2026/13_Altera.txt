@@ -1,0 +1,15 @@
+Date: 2nd November 2026
+HR: Ruby Behera
+Manager: Subhransu Sekhar Prusty
+
+
+Where platform drivers are used?
+Write steps or flow for writing platform driver.
+If deinterlacer is IP and have to write the driver what are the steps you follow?
+Write a driver probe function.
+What is the structure of platform driver.
+Write the interrupt handler. Interrupt registration sequence.
+Write gstreamer pipeline for streaming and display.
+Write a program in C which has x->main number, y->number to set the bit and z->bit index to set.
+ 
+
