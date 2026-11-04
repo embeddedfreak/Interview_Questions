@@ -1,0 +1,2120 @@
+I want to learn for this job role in one day.
+
+What all I need to study for initial round of interview.
+
+About the job
+Job Description:As an FPGA IP Software Development Engineer at Altera, you will play a crucial role in developing and optimizing software for our cutting-edge FPGA intellectual property. You will be responsible for creating robust, high-performance software solutions that enable our customers to leverage the full potential of Altera's FPGA technology across various applications.
+Responsibilities:
+Design, develop, and test software drivers, APIs, and example designs for Altera's FPGA IP cores.
+Collaborate with hardware design engineers to define software requirements and ensure seamless integration between hardware and software.
+Implement and debug firmware, embedded software, Linux kernel drivers and host-side applications interacting with ethernet/DMA/PCI FPGA IPs.
+Develop comprehensive test plans and perform thorough validation of software components.
+Optimize software for performance, resource utilization, and power efficiency on Altera FPGA platforms.
+Create detailed documentation including design specifications, user guides, and application notes.
+Provide technical support to customers and internal teams regarding software usage and troubleshooting.
+Stay up-to-date with industry trends and emerging technologies in FPGA, embedded systems, and software development.
+
+Qualifications:
+5 -12 years of experience in embedded software, firmware, BSP, or low-level systems development for embedded systems or FPGA-based platforms
+Bachelor’s degree or master’s degree in computer engineering, Electronics Engineering, or a related field
+Strong programming skills in C, with experience in C++ considered beneficial and FPGA design flows is highly desirable.
+Experience developing firmware, device drivers (Network/PCI preferred), or platform software for embedded systems.
+Deep expertise in embedded Linux environments and low-level software architecture and experience with debugging tools (e.g. JTAG, logic analyzers, software debuggers) and embedded development workflows
+Strong understanding of computer architecture, digital design, and data structures.
+Demonstrate AI skills in day-to-day activities for development/debug/validation.
+Behavioral Traits:
+Customer-Centric Approach: Committed to understanding and meeting customer needs by providing solutions and support
+Problem-Solving Mindset: Demonstrates attention to detail, accountability, and integrity in resolving design challenges.
+Adaptability & Innovation: Open to learning new technologies and eager to innovate in a rapidly changing environment.
+Communication & Collaboration: Excels at sharing ideas and working within a team to achieve project goals.
+
+
+I have 24 hours to study.
+
+
+MY CV Looks something like this
+
+
+Gladson Blaze Andrade​
+Embedded Software Developer
+Phone: +91 9482500362 | Email: gladsonandrade1998@gmail.com
+LinkedIn: linkedin.com/in/gladson-andrade-ab1244179
+Bangalore, Karnataka, India
+Summary:
+Senior Embedded Software Engineer with 6+ years of experience in embedded Linux, Linux device driver
+development, BSP development, multimedia, Linux graphics, display stack, and system integration.
+Expertise in C, GStreamer, V4L2, DRM, Wayland/Weston, kernel debugging, and high-performance
+multimedia applications. Strong experience in debugging complex software stacks, board bring-up, root
+cause analysis, and delivering scalable embedded solutions.
+Skills:
+Software: PetaLinux, Vivado, Xilinx SDK, Vitis, VS Code, Eclipse, Jira, Bitbucket, Confluence.
+OS Platform: Embedded Linux, Ubuntu, FreeBSD, Dell ThinOS.
+Version Control: Git, SVN.
+Programming: C, C++ and bash/shell scripting.
+Frameworks/Technologies: GStreamer, V4L2, DRM/KMS, Linux kernel device drivers, device tree,
+embedded Linux, bare-metal programming, BSP development, U-Boot, FSBL, multimedia pipelines, and
+H.264/H.265 codecs.
+Protocols/Interfaces: UART, I2C, SPI, USB 2.0/3.0, GPIO, PWM, HDMI, DisplayPort (DP), DVI, SDI and
+RS422.
+Professional Skills: Problem Solving, Clean Coding, Mentoring, Team Player, Technical Presentations,
+Time Management, Quick Learner and Self-Motivated.
+Experience:
+Senior Embedded Software Engineer​
+September 2024 - Present
+Capgemini​
+Bangalore, Karnataka
+​
+ThinOS Client:
+●​ Worked on the Weston/Wayland display stack in Dell ThinOS, enabling and validating dual GPU
+configurations (Intel + NVIDIA) and (Intel + Synaptics DisplayLink) on the latest generation of devices.
+●​ Debugged and resolved HDMI multi-monitor, dock, display orientation, hotplug detection, taskbar
+behaviour, subwindow management, icon/text rendering, and screen saver timer functionality issues.
+●​ Debugged and resolved mouse input detection issues in the X11 stack by tracing xinput, libinput, and
+evdev events and implemented changes in xorg-server.
+●​ Performed debugging and root cause analysis across Weston, X11/XWayland, xorg-server, backend-drm,
+renderer-gl, libdrm, and display stack layers.
+●​ Worked both as a team coordinator, managing technical tasks while contributing to development,
+debugging, and issue resolution.
+●​ Delivered technical presentations on Weston Internals and ThinOS Display Architecture to engineering
+teams.Senior Embedded Software Engineer​
+May 2023 - September 2024
+Softnautics - A Moschip Company​
+Pune, Maharashtra
+VCU Low Latency Streaming:
+●​ Implemented low-latency 4K video encoding/decoding and streaming over 10G Ethernet and Wi-Fi.
+●​ Developed expertise in H.264/H.265 codecs and basic to advanced GStreamer plugin development,
+while debugging issues related to VCU IP, video IP drivers, and multimedia stack layers.
+●​ Conducted R&D on LiDAR applications and worked on integrating LiDAR solutions using sample data.
+●​ Mentored interns and junior engineers on embedded and multimedia concepts, and delivered technical
+presentations on various multimedia topics.
+Junior Engineer​
+July 2020 - May 2023
+iWave Systems Technologies Pvt. Ltd.​
+Bangalore, Karnataka
+Video Management Unit:
+●​ Developed Linux V4L2 kernel drivers for Xilinx video processing IPs and avionics video interfaces,
+including ADV7403, ADV7611, deinterlacer, ARINC Tx and GPIO push-button drivers, enabling
+real-time video pipeline management and dynamic source switching.
+●​ Developed a hotplug management application for video source detection, recording control, sysfs status
+handling, I2C communication and dynamic V4L2/VPSS video pipeline configuration on Embedded
+Linux.
+●​ Developed RS422 control application for command parsing, BIT (PBIT/CBIT/IBIT) diagnostics, video
+routing, recording control, disk monitoring and hardware management using UART.
+Arinc Recorder:
+●​ Developed V4L2 driver for Arinc Rx.
+●​ Configured each IP from the application side (format and resolution).
+●​ Streamed using the Gstreamer application and got exposed to various plugins, capabilities and
+properties.
+●​ Encoded and decoded using the H.264 encoder and decoder.
+●​ Debugged issues in video pipeline with the help of System ILA using the Vivado tool.
+High-Resolution Display Interface:
+●​ Brought up Zynq UltraScale+ (ZU7EV) multimedia platform supporting DP/HDMI/SDI video capture
+and HDMI/DP/DVI/SDI/LCD/USB3.0-UVC display pipelines for FHD/4K video workflows.
+●​ Customized Linux BSP (PetaLinux), U-Boot, kernel, device tree and rootfs for custom hardware
+enablement of USB2.0/USB3.0, SATA, Ethernet, UART, GPIO, PWM and touch interfaces.
+●​ Implemented runtime hotplug detection and stream control applications for dynamic handling of
+HDMI/DP cable events, media pipeline configuration and video path selection.
+●​ Integrated USB3 UVC gadget pipeline for FHD video streaming, exposing the embedded target as a
+webcam device to host systems.
+●​ Performed AXI/DDR performance profiling using APM, HP/HPC throughput analysis and PL-PS
+datapath monitoring for high-bandwidth video streaming optimization.SATA 3.0 Secure Hard Drive:
+●​ Splitting large hex files into smaller sized files using a bash script.
+●​ Programmed external SPI memory and eNVM memory in maintenance mode.
+●​ Transferred eNVM data to Artix-7 FPGA in normal mode.
+Education:
+BE in Computer Science and Engineering
+Vishvesvaraya Technological University [2016 - 2020]
+Address: Canara Engineering College, Benjanpadav Bantwal Taluk, D.K District, Karnataka, 574219,
+Mangalore.
+Final grade: 7.9
+Pre-University College
+Dept of Pre-University Education Karnataka [2014 - 2016]
+Address: Carmel Composite PU College, Modankap, Bantwal Taluk, DK, 574219, Mangalore.
+Percentage: 88.
+
+ChatGPT said:
+Altera FPGA IP Software Development Engineer – 24-hour interview preparation
+First, I want to tell you something important: You are not starting from zero. You already have a strong portion of the experience this job requires.
+
+Looking at your CV, you have:
+
+6+ years of embedded Linux experience.
+
+Linux kernel and V4L2 driver development.
+
+Xilinx FPGA and Zynq UltraScale+ experience.
+
+AXI, DDR, DMA-related performance profiling.
+
+10G Ethernet video streaming experience.
+
+Device Tree, U-Boot, PetaLinux and BSP development.
+
+Hardware/software debugging using Vivado System ILA.
+
+These are highly relevant to the Altera position.
+
+Your biggest challenge is not learning FPGA development from scratch in 24 hours. It is being able to connect your existing Xilinx experience to Altera's FPGA IP software development requirements and confidently answer low-level C, Linux driver, DMA, PCIe and Ethernet questions.
+
+I would prepare you as an experienced embedded engineer, not as a fresher studying theoretical concepts.
+
+24 hours
+Your preparation objective
+
+Refresh C and bitwise programming.
+
+Revise Linux kernel and driver architecture.
+
+Understand DMA, PCIe and Ethernet IP interaction.
+
+Prepare FPGA/AXI architecture.
+
+Prepare project-based explanations from your CV.
+
+Practice technical interview questions aloud.
+
+1. Understand what Altera is actually looking for
+Let's translate the job description into technical topics.
+
+Job requirement
+
+What you should prepare
+
+C programming
+
+Pointers, memory, bitwise, structures, volatile
+
+Software drivers
+
+Linux character, platform and PCI drivers
+
+FPGA IP cores
+
+AXI, registers, interrupts, DMA
+
+Ethernet IP
+
+MAC, PHY, descriptors, packet transmission
+
+DMA
+
+Scatter-gather, descriptors, cache coherency
+
+PCI
+
+PCIe enumeration, BAR, MSI/MSI-X
+
+Embedded Linux
+
+Kernel, Device Tree, interrupts, MMIO
+
+Hardware debugging
+
+JTAG, ILA, register-level debugging
+
+Performance
+
+Throughput, latency, DDR bandwidth
+
+Validation
+
+Unit tests, integration tests, stress tests
+
+My suggested preparation priority:
+
+C programming and bit manipulation
+
+95% priority
+
+Linux kernel and device drivers
+
+95% priority
+
+DMA and memory management
+
+95% priority
+
+FPGA and AXI architecture
+
+85% priority
+
+PCIe and Ethernet
+
+85% priority
+
+Project explanation
+
+100% priority
+
+Data structures and debugging
+
+75% priority
+
+C++ and AI tools
+
+45% priority
+
+Priority for preparation, not an assessment of your current skills.
+2. Your 24-hour study timetable
+Do not spend equal time on everything. Your CV already demonstrates significant embedded Linux experience, so focus on the gaps and interview fundamentals.
+
+Recommended timetable
+I recommend approximately 14 hours of focused preparation, 7 hours of sleep and the remaining time for meals, breaks and revision.
+
+Time
+
+Topic
+
+Duration
+
+6:00–8:00 AM
+
+C programming and bit manipulation
+
+2 hrs
+
+8:00–10:00 AM
+
+Pointers, memory and data structures
+
+2 hrs
+
+10:00–12:00 PM
+
+Linux kernel and device drivers
+
+2 hrs
+
+12:00–1:00 PM
+
+Lunch and break
+
+1 hr
+
+1:00–3:00 PM
+
+DMA, interrupts and memory management
+
+2 hrs
+
+3:00–5:00 PM
+
+FPGA, AXI and hardware architecture
+
+2 hrs
+
+5:00–6:00 PM
+
+Break
+
+1 hr
+
+6:00–8:00 PM
+
+PCIe and Ethernet
+
+2 hrs
+
+8:00–9:00 PM
+
+Dinner
+
+1 hr
+
+9:00–10:30 PM
+
+Your project explanations
+
+1.5 hrs
+
+10:30–11:30 PM
+
+Mock interview and revision
+
+1 hr
+
+11:30 PM–6:30 AM
+
+Sleep
+
+7 hrs
+
+Adjust the clock times according to your actual interview schedule. Do not sacrifice sleep to squeeze in another topic.
+
+3. Module 1 – C programming (2 hours)
+Very high priority
+This is probably the most important area to prepare.
+
+For an experienced embedded engineer, expect questions that test whether you understand how C interacts with hardware and memory.
+
+A. Bitwise operators
+Study these thoroughly:
+
+AND (&)
+
+OR (|)
+
+XOR (^)
+
+NOT (~)
+
+Left shift (<<)
+
+Right shift (>>)
+
+Set, clear, toggle and check a bit.
+
+Bit masking.
+
+Bit extraction.
+
+Circular left and right rotation.
+
+Endianness.
+
+You were already practicing bit rotation. Continue with these questions.
+
+Question 1: Set bit number 5
+
+
+c
+num |= (1U << 5);
+Question 2: Clear bit number 5
+
+
+c
+num &= ~(1U << 5);
+Question 3: Toggle bit number 5
+
+
+c
+num ^= (1U << 5);
+Question 4: Check bit number 5
+
+
+c
+if (num & (1U << 5))
+{
+    printf("Bit is set\n");
+}
+Question 5: Extract bits 8 to 15
+
+
+c
+uint32_t value = (num >> 8) & 0xFFU;
+Question 6: Check whether a number is a power of 2
+
+
+c
+if (num && !(num & (num - 1)))
+{
+    printf("Power of 2\n");
+}
+B. Pointers
+Study these concepts:
+
+Pointer and double pointer.
+
+Pointer arithmetic.
+
+Array vs pointer.
+
+Function pointers.
+
+Void pointers.
+
+NULL pointer.
+
+Dangling pointer.
+
+Wild pointer.
+
+Const pointer vs pointer to const.
+
+Structure pointer.
+
+You MUST understand these declarations:
+
+
+c
+const int *ptr;
+int *const ptr;
+const int *const ptr;
+Declaration
+
+Meaning
+
+const int *ptr
+
+Cannot modify value through pointer
+
+int *const ptr
+
+Cannot change pointer address
+
+const int *const ptr
+
+Cannot change either
+
+C. Memory management
+Study:
+
+Stack vs heap.
+
+malloc(), calloc(), realloc(), free().
+
+Memory leaks.
+
+Buffer overflow.
+
+Use-after-free.
+
+Double free.
+
+Structure padding and alignment.
+
+sizeof().
+
+Example interview question:
+
+What is the difference between malloc() and calloc()?
+
+malloc() allocates memory without initializing it.
+
+calloc() allocates memory and initializes its bytes to zero.
+
+D. Other important C concepts
+Concept
+
+What you should know
+
+volatile
+
+Prevents compiler from treating accesses as ordinary removable/reusable accesses
+
+static
+
+Static storage duration or file/function scope depending on usage
+
+extern
+
+Declaration referring to an externally defined object/function
+
+register
+
+Historical register-storage hint
+
+const
+
+Restricts modification through a given access path
+
+inline
+
+Function inlining suggestion
+
+typedef
+
+Creates a type alias
+
+enum
+
+Named integer constants
+
+union
+
+Members share storage
+
+struct
+
+Groups members with separate storage
+
+Particularly important: volatile.
+
+This is very likely to come up in an FPGA driver interview.
+
+Example:
+
+
+c
+#define STATUS_REG (*(volatile uint32_t *)0x40000000)
+
+while (!(STATUS_REG & 0x01))
+{
+    // Wait until hardware sets the ready bit
+}
+Why volatile?
+
+Because hardware may change the register value independently of the program. The compiler must not optimize away the required reads.
+
+Important interview distinction: volatile does not guarantee atomicity, synchronization between threads, or cache coherency.
+
+E. C coding problems to practice
+Don't just read these. Write them yourself.
+
+Reverse a string without using another array.
+
+Reverse an integer.
+
+Find the second-largest element in an array.
+
+Remove duplicates from an array.
+
+Count set bits in an integer.
+
+Reverse bits of a 32-bit number.
+
+Check whether a number is a power of two.
+
+Implement memcpy().
+
+Implement memmove().
+
+Find endianness of a system.
+
+Implement circular left/right rotation.
+
+Swap two numbers without a temporary variable.
+
+Target
+ Be able to write at least 8 of these without referring to notes.
+
+4. Module 2 – Linux kernel and device drivers (2 hours)
+Very high priority
+This is where you can leverage your existing experience.
+
+You have already worked on V4L2, I2C, GPIO, device trees and platform drivers. Now prepare to explain the fundamentals clearly.
+
+A. Linux architecture
+Understand this diagram:
+
+Master Linux Driver Architecture! | David Zhu
+ 
+Know the following:
+
+User space vs kernel space.
+
+System calls.
+
+Kernel modules.
+
+Device drivers.
+
+Interrupt handling.
+
+Device Tree.
+
+Character devices.
+
+Platform devices.
+
+PCI devices.
+
+B. Linux driver initialization flow
+You should be able to explain this without hesitation:
+
+
+text
+Device Tree
+    |
+    v
+Device matching
+    |
+    v
+Driver probe()
+    |
+    v
+Resource acquisition
+    |
+    v
+Register mapping
+    |
+    v
+Interrupt registration
+    |
+    v
+Hardware initialization
+    |
+    v
+Device operational
+Example:
+
+
+c
+static int my_probe(struct platform_device *pdev)
+{
+    // Get hardware resources
+    // Map registers
+    // Register IRQ
+    // Initialize hardware
+
+    return 0;
+}
+
+static void my_remove(struct platform_device *pdev)
+{
+    // Release resources
+}
+
+static const struct of_device_id my_match[] = {
+    { .compatible = "vendor,my-device" },
+    {}
+};
+
+static struct platform_driver my_driver = {
+    .probe = my_probe,
+    .remove = my_remove,
+    .driver = {
+        .name = "my_driver",
+        .of_match_table = my_match,
+    },
+};
+
+module_platform_driver(my_driver);
+Know the purpose of each function.
+
+C. Important driver APIs
+API
+
+Purpose
+
+ioremap()
+
+Map physical I/O memory into kernel virtual address space
+
+readl()
+
+Read a 32-bit MMIO register
+
+writel()
+
+Write a 32-bit MMIO register
+
+request_irq()
+
+Register interrupt handler
+
+free_irq()
+
+Release interrupt
+
+kmalloc()
+
+Allocate kernel memory
+
+kzalloc()
+
+Allocate zero-initialized kernel memory
+
+kfree()
+
+Free kernel memory
+
+copy_to_user()
+
+Copy data to user space
+
+copy_from_user()
+
+Copy data from user space
+
+devm_kzalloc()
+
+Device-managed allocation
+
+dma_alloc_coherent()
+
+Allocate coherent DMA memory
+
+D. Interrupts
+This is extremely important.
+
+Understand:
+
+Hardware interrupt.
+
+Software interrupt.
+
+IRQ.
+
+ISR (Interrupt Service Routine).
+
+Top half and bottom half.
+
+Tasklets (legacy mechanism).
+
+Workqueues.
+
+Threaded IRQ.
+
+Interrupt latency.
+
+Typical question:
+
+Why can't we perform lengthy operations inside an ISR?
+
+Answer:
+
+Because interrupt handlers need to execute quickly. Lengthy processing increases interrupt latency and can affect other time-critical activities.
+
+Explain the distinction:
+
+Top half
+
+Bottom half
+
+Immediate interrupt handling
+
+Deferred processing
+
+Must be quick
+
+Can perform more work
+
+Cannot sleep in hard IRQ context
+
+Workqueues can sleep
+
+Acknowledges/records interrupt
+
+Performs deferred operations
+
+E. Device Tree
+You already have experience here, so revise:
+
+What is Device Tree?
+
+What is a .dts file?
+
+What is a .dtsi file?
+
+What is compatible?
+
+What are reg, interrupts, clocks and resets?
+
+How does the kernel match a device with its driver?
+
+Example:
+
+
+dts
+my_device@a0000000 {
+    compatible = "vendor,my-device";
+    reg = <0x0 0xa0000000 0x0 0x1000>;
+    interrupts = <0 89 4>;
+};
+Be prepared to explain how this hardware description reaches the driver.
+
+5. Module 3 – DMA and memory management (2 hours)
+Critical for this job
+This is one of the most important topics because the role explicitly mentions DMA IP.
+
+You have already worked on AXI/DDR performance profiling and high-bandwidth video streaming. Use that experience to understand the software side of DMA.
+
+A. What is DMA?
+DMA stands for Direct Memory Access.
+
+Normally, the CPU transfers data by reading and writing it itself.
+
+With DMA, a hardware DMA controller transfers data between a device and system memory without requiring the CPU to copy every byte.
+
+DMA Architecture: CPU Offloading for Faster I/O | Ghaith Jebali posted on the topic | LinkedIn
+ 
+Example: FPGA receives a video frame and needs to transfer it to DDR memory.
+
+
+text
+FPGA Video IP
+      |
+      v
+   DMA Engine
+      |
+      v
+   DDR Memory
+      |
+      v
+   CPU processes buffer
+The CPU configures DMA, starts the transfer and handles completion notification.
+
+B. Understand DMA types
+1. Memory-to-memory DMA
+
+
+text
+DDR -> DMA -> DDR
+2. Device-to-memory DMA
+
+
+text
+FPGA/Peripheral -> DMA -> DDR
+3. Memory-to-device DMA
+
+
+text
+DDR -> DMA -> FPGA/Peripheral
+C. Scatter-gather DMA
+[ZCU-104]DMA + DDR 공부 내용
+ 
+Very important for FPGA IP development.
+
+Instead of transferring one continuous buffer, DMA can use multiple memory regions described by descriptors.
+
+Example:
+
+
+text
+Descriptor 1 -> Buffer A
+Descriptor 2 -> Buffer B
+Descriptor 3 -> Buffer C
+Know these terms:
+
+Descriptor.
+
+Source address.
+
+Destination address.
+
+Transfer length.
+
+Status.
+
+Ownership.
+
+Completion interrupt.
+
+Descriptor ring.
+
+D. DMA Linux APIs
+Learn these API names and their purposes:
+
+API
+
+Purpose
+
+dma_alloc_coherent()
+
+Allocate coherent DMA memory
+
+dma_free_coherent()
+
+Free coherent DMA memory
+
+dma_map_single()
+
+Map a buffer for DMA
+
+dma_unmap_single()
+
+Unmap a DMA buffer
+
+dma_map_sg()
+
+Map scatter-gather entries
+
+dma_unmap_sg()
+
+Unmap scatter-gather entries
+
+dma_sync_single_for_device()
+
+Synchronize streaming DMA buffer for device access
+
+dma_sync_single_for_cpu()
+
+Synchronize streaming DMA buffer for CPU access
+
+E. Very important interview question
+What is the difference between coherent and streaming DMA?
+
+Coherent DMA
+
+Streaming DMA
+
+CPU and device observe coherent memory
+
+Explicit synchronization may be required
+
+Suitable for shared control structures and descriptors
+
+Suitable for data buffers
+
+Typically allocated with dma_alloc_coherent()
+
+Typically mapped with dma_map_single() or SG APIs
+
+Do not assume that coherent DMA means no ordering requirements. Memory barriers may still be needed when publishing descriptors or communicating ownership.
+
+Another question: Why can't we directly use a CPU virtual address for DMA?
+
+Because the device needs a DMA address, which may differ from the CPU virtual address and even from the CPU physical address. An IOMMU may translate the DMA address.
+
+Remember this distinction:
+
+
+text
+CPU Virtual Address
+        |
+        v
+CPU Physical Address
+
+Device DMA Address
+        |
+        v
+IOMMU / Bus Address Translation
+Use the Linux DMA API rather than assuming these addresses are interchangeable.
+
+6. Module 4 – FPGA and AXI architecture (2 hours)
+Very high priority
+This is where your Xilinx experience gives you a considerable advantage.
+
+You should understand the architecture and be able to explain how software communicates with FPGA IP.
+
+A. FPGA architecture
+What you need to know about the internal structure of FPGA_VEMEKO
+ 
+Revise:
+
+LUT.
+
+Flip-flop.
+
+BRAM.
+
+DSP slices.
+
+Clock management.
+
+I/O pins.
+
+High-speed transceivers.
+
+Programmable logic.
+
+Hard processor system (where available).
+
+B. AXI protocol
+This is a must-study topic.
+
+Understand these three interfaces:
+
+Interface
+
+Purpose
+
+AXI4-Lite
+
+Simple memory-mapped register access
+
+AXI4
+
+High-performance memory-mapped data transfers
+
+AXI4-Stream
+
+Continuous streaming data
+
+AXI-Full and AXI-Lite Interfaces Logic Fruit Technologies
+ 
+Know the AXI4-Lite channels:
+
+AW: Write address.
+
+W: Write data.
+
+B: Write response.
+
+AR: Read address.
+
+R: Read data.
+
+Understand VALID and READY handshake.
+
+Interview question: What happens when VALID is high but READY is low?
+
+The transaction has not completed. The sender must keep VALID asserted and maintain the transaction information until the receiver accepts it.
+
+C. AXI IP integration
+Imagine you have an FPGA Ethernet IP.
+
+
+text
+            CPU / Host
+                |
+                v
+         AXI4-Lite Interface
+                |
+                v
+          Ethernet IP
+                |
+                v
+          AXI4-Stream
+                |
+                v
+             DMA
+                |
+                v
+             DDR
+The CPU uses AXI4-Lite to configure registers. AXI4-Stream carries packet data. DMA moves the data to or from system memory.
+
+Be ready to explain the distinction between control path and data path.
+
+D. FPGA software development flow
+You know Xilinx, but prepare the vendor-neutral flow:
+
+FPGA IP configuration.
+
+Hardware block design.
+
+Address mapping.
+
+Interrupt configuration.
+
+Bitstream generation.
+
+BSP/boot configuration.
+
+Device Tree configuration.
+
+Linux driver development.
+
+User-space application development.
+
+Hardware/software validation.
+
+For Altera, understand that the equivalent development ecosystem uses Quartus Prime and Platform Designer, rather than Vivado IP Integrator.
+
+7. Module 5 – PCIe (1 hour)
+Very high priority
+Your CV does not explicitly show PCIe driver development, but the job description specifically mentions PCI.
+
+You need to understand the fundamentals.
+
+A. What is PCIe?
+PCIe stands for Peripheral Component Interconnect Express.
+
+It is a high-speed serial interface used to connect devices such as:
+
+FPGA cards.
+
+Network cards.
+
+NVMe SSDs.
+
+GPUs.
+
+DMA devices.
+
+PCIe
+ 
+Understand these terms:
+
+Term
+
+Meaning
+
+Root Complex
+
+Host-side PCIe component
+
+Endpoint
+
+PCIe device
+
+Link
+
+Connection between devices
+
+Lane
+
+Serial transmit and receive pair
+
+Gen1, Gen2, Gen3, Gen4, Gen5
+
+PCIe generations
+
+BAR
+
+Base Address Register
+
+MSI
+
+Message Signaled Interrupt
+
+MSI-X
+
+Extended message-signaled interrupts
+
+TLP
+
+Transaction Layer Packet
+
+B. PCIe driver initialization
+Understand this sequence:
+
+
+text
+System boot
+    |
+    v
+PCIe enumeration
+    |
+    v
+Device detected
+    |
+    v
+Vendor ID / Device ID matched
+    |
+    v
+PCI driver probe()
+    |
+    v
+Enable PCI device
+    |
+    v
+Request BAR regions
+    |
+    v
+Map BAR
+    |
+    v
+Configure DMA
+    |
+    v
+Register interrupts
+    |
+    v
+Device ready
+C. Important Linux PCI APIs
+Learn these:
+
+API
+
+Purpose
+
+pci_register_driver()
+
+Register PCI driver
+
+pci_enable_device()
+
+Enable PCI device
+
+pci_disable_device()
+
+Disable PCI device
+
+pci_request_regions()
+
+Request BAR regions
+
+pci_release_regions()
+
+Release BAR regions
+
+pci_iomap()
+
+Map BAR into kernel virtual address space
+
+pci_iounmap()
+
+Unmap BAR
+
+pci_set_master()
+
+Enable bus mastering
+
+pci_set_drvdata()
+
+Store driver private data
+
+D. Interview questions
+What is PCIe enumeration?
+
+What is a BAR?
+
+What is the difference between memory-mapped I/O and port-mapped I/O?
+
+What is MSI and MSI-X?
+
+What is PCIe DMA?
+
+What is the difference between PCI and PCIe?
+
+How does Linux identify a PCIe device?
+
+What happens when a PCIe device is connected?
+
+Particularly remember: PCIe DMA allows an endpoint to initiate transactions to system memory when appropriately configured. The host CPU does not have to copy every byte.
+
+8. Module 6 – Ethernet and networking (1 hour)
+Very high priority
+This is especially important because you worked on 10G Ethernet video streaming.
+
+A. Understand Ethernet architecture
+MEEP Shell - Part 1: The Ethernet IP | MEEP
+ 
+Understand the difference:
+
+MAC: Handles Ethernet frame transmission and reception.
+
+PHY: Handles physical-layer signaling over the medium.
+
+DMA: Moves packets between device and system memory.
+
+NIC: Network interface controller.
+
+B. Packet transmission flow
+Understand how an application sends data.
+
+
+text
+Application
+     |
+     v
+Socket API
+     |
+     v
+TCP / UDP
+     |
+     v
+IP
+     |
+     v
+Ethernet
+     |
+     v
+Network Driver
+     |
+     v
+DMA Descriptor Ring
+     |
+     v
+Ethernet MAC
+     |
+     v
+PHY
+     |
+     v
+Network
+C. Packet reception flow
+
+text
+Network
+   |
+   v
+PHY
+   |
+   v
+Ethernet MAC
+   |
+   v
+DMA
+   |
+   v
+DDR Memory
+   |
+   v
+Interrupt / NAPI
+   |
+   v
+Network Driver
+   |
+   v
+Linux Network Stack
+   |
+   v
+Application
+D. Important terms
+MAC address.
+
+IP address.
+
+TCP vs UDP.
+
+MTU.
+
+Ethernet frame.
+
+Packet descriptor.
+
+Ring buffer.
+
+RX and TX queues.
+
+Interrupt coalescing.
+
+NAPI.
+
+Checksum offloading.
+
+Zero-copy.
+
+Throughput vs latency.
+
+E. Interview questions
+1. Difference between TCP and UDP?
+
+TCP
+
+UDP
+
+Connection-oriented
+
+Connectionless
+
+Reliable delivery
+
+No delivery guarantee
+
+Retransmission
+
+No built-in retransmission
+
+Ordered delivery
+
+No ordering guarantee
+
+More protocol overhead
+
+Lower protocol overhead
+
+2. What is NAPI?
+
+NAPI is the Linux networking mechanism that combines interrupt-driven notification with polling to process packets efficiently under high traffic.
+
+3. Why use interrupt coalescing?
+
+To reduce the number of interrupts generated during high packet traffic, improving CPU efficiency at the possible cost of additional latency.
+
+4. What is the difference between throughput and latency?
+
+Throughput: Amount of data transferred per unit time.
+
+Latency: Time taken for data to travel from source to destination.
+
+For your 10G streaming project, prepare to explain how you investigated throughput bottlenecks and latency.
+
+9. Module 7 – Data structures and operating systems (1 hour)
+These are frequently tested in experienced C/embedded interviews.
+
+Data structures
+Focus on these:
+
+Data structure
+
+Embedded use case
+
+Array
+
+Fixed-size data buffers
+
+Linked list
+
+Kernel resource management
+
+Circular buffer
+
+UART, video and network data
+
+Queue
+
+Producer-consumer communication
+
+Stack
+
+Function calls and LIFO processing
+
+Hash table
+
+Fast lookup
+
+Ring buffer
+
+DMA descriptor management
+
+Particularly important: Circular buffer
+You should be able to implement one.
+
+Lock-Free SPSC Queue
+ 
+Understand:
+
+Head pointer.
+
+Tail pointer.
+
+Buffer full condition.
+
+Buffer empty condition.
+
+Wrap-around.
+
+Producer and consumer.
+
+Operating system concepts
+Revise:
+
+Process vs thread.
+
+Context switching.
+
+Mutex vs semaphore.
+
+Binary semaphore vs counting semaphore.
+
+Deadlock.
+
+Race condition.
+
+Priority inversion.
+
+Scheduling.
+
+Atomic operations.
+
+Spinlock vs mutex.
+
+Very important interview question: Mutex vs semaphore?
+
+Mutex is primarily for mutual exclusion and has ownership semantics.
+
+Semaphore is a signaling/synchronization primitive and does not have mutex-style ownership.
+
+Another important question: Can you use a mutex inside an interrupt handler?
+
+No. A mutex can sleep, whereas a hard interrupt handler cannot sleep.
+
+10. Module 8 – Prepare your own projects (1.5 hours)
+Your strongest advantage
+I would actually spend more time on this than learning new technologies.
+
+Your CV has some excellent projects that align with this role.
+
+Prepare these four projects thoroughly.
+
+Project 1: Zynq UltraScale+ high-resolution display platform
+ALINX AXU7EV: Xilinx Zynq UltraScale+ MPSoC XCZU7EV  AI Calculation 4K HDMI Input Output PCIe3.0 H.265 Automotive ADAS Vitis-AI / Computer Components
+ 
+This is probably your strongest FPGA-related project.
+
+Prepare answers to:
+
+Explain the Zynq UltraScale+ architecture.
+
+What is PS and PL?
+
+How does PS communicate with PL?
+
+What is AXI?
+
+What are HP and HPC interfaces?
+
+How does DMA transfer video data?
+
+How did you configure Device Tree?
+
+How did you debug video pipeline issues?
+
+What is DDR bandwidth?
+
+How did you profile AXI/DDR performance?
+
+Your interview explanation should sound something like this:
+
+Writing
+
+
+I worked on a Zynq UltraScale+ based multimedia platform supporting multiple video interfaces, including HDMI, DisplayPort and SDI.
+
+My responsibilities included embedded Linux BSP customization, U-Boot and kernel configuration, Device Tree development, driver integration and user-space application development.
+
+I worked on configuring and validating video pipelines and investigated data transfer performance between programmable logic and DDR memory.
+
+I also used AXI Performance Monitor to profile HP/HPC interface throughput and identify potential bottlenecks in high-bandwidth video streaming.
+
+This gave me practical experience in hardware-software integration, register-level configuration, Linux drivers and FPGA-based data paths.
+
+Be ready to explain exactly what you personally implemented versus what was already provided by the hardware team.
+
+Project 2: V4L2 Linux kernel drivers
+Video Capture Software Stack
+ 
+This is highly relevant because Altera needs engineers who understand IP drivers.
+
+Prepare:
+
+What is V4L2?
+
+What is the V4L2 framework?
+
+What is a media controller?
+
+What is a video node?
+
+What is a subdevice?
+
+How does I2C communicate with video decoder ICs?
+
+How do you configure resolution and pixel format?
+
+What is buffer queueing?
+
+What is streaming on/off?
+
+What is the difference between interrupt-driven and polling-based drivers?
+
+Be able to explain the complete path:
+
+
+text
+Video Decoder / FPGA IP
+         |
+         v
+     V4L2 Driver
+         |
+         v
+     V4L2 Framework
+         |
+         v
+     User Application
+         |
+         v
+       GStreamer
+         |
+         v
+      Display / Encoder
+Project 3: 10G Ethernet low-latency streaming
+FPGA基于10G/25G Ethernet Subsystem的10G UDP网络通信，提供4套工程源码和技术支持_xgmii 10g-CSDN博客
+ 
+This is directly relevant to the Ethernet requirement.
+
+Prepare:
+
+How did you achieve low-latency streaming?
+
+What is the difference between encoding latency and network latency?
+
+What is the role of GStreamer?
+
+How did you measure throughput?
+
+How did you debug packet loss?
+
+What is buffering?
+
+What is zero-copy?
+
+What are TCP and UDP?
+
+How does the Ethernet driver interact with DMA?
+
+Do not claim that you implemented an Ethernet MAC or PCIe driver if you did not. Explain your actual work and demonstrate that you understand the underlying architecture.
+
+Project 4: ThinOS display stack
+Linux-Wissen: Grafik-Stack unter Linux – der Unterbau - ComputerBase
+ 
+This demonstrates your debugging skills.
+
+Prepare:
+
+What is Wayland?
+
+What is Weston?
+
+What is DRM/KMS?
+
+What is X11?
+
+What is XWayland?
+
+What is a DRM plane?
+
+What is a framebuffer?
+
+What is page flipping?
+
+How does a display driver interact with hardware?
+
+How do you debug an issue across multiple software layers?
+
+The most important question:
+
+Tell me about a difficult bug you debugged.
+
+Use this structure:
+
+Problem: What was the observed issue?
+
+Investigation: What logs, traces and tools did you use?
+
+Root cause: What was actually wrong?
+
+Solution: What did you change?
+
+Validation: How did you verify the fix?
+
+Prepare one genuine example from your dual-GPU, HDMI hotplug or display orientation work.
+
+11. Module 9 – Altera-specific preparation (30–45 minutes)
+You have experience with Xilinx, but the interview is for Altera.
+
+You should understand the equivalent tools and terminology.
+
+アダプティブ SoC および FPGA デザイン ツール
+ 
+Xilinx ecosystem
+
+Vivado
+
+Vitis
+
+IP Integrator
+
+PetaLinux
+
+AXI
+
+Intel Quartus Platform Designer Tutorial at Jo Ellzey blog
+ 
+Altera ecosystem
+
+Quartus Prime
+
+Platform Designer
+
+Nios V
+
+FPGA IP
+
+Avalon interfaces
+
+Study these differences:
+
+Xilinx
+
+Altera
+
+Vivado
+
+Quartus Prime
+
+IP Integrator
+
+Platform Designer
+
+AXI interfaces
+
+Avalon interfaces are also common
+
+Zynq PS
+
+Platform-dependent HPS or external host
+
+Vitis
+
+Software development tools depend on platform
+
+Important: AXI is not exclusive to Xilinx. Altera FPGA designs can also use AXI interfaces.
+
+Understand Avalon interfaces
+Altera commonly uses Avalon interfaces.
+
+Learn these three:
+
+Avalon-MM: Memory-mapped register and memory access.
+
+Avalon-ST: Streaming data.
+
+Avalon Interrupt Interface: Interrupt signaling.
+
+Also learn the basics of:
+
+Quartus IP Catalog.
+
+Platform Designer system integration.
+
+FPGA compilation and timing closure.
+
+Hardware handoff and software integration.
+
+You do not need to become proficient in Quartus in one day. You need to demonstrate that you understand how your existing FPGA knowledge transfers.
+
+12. Module 10 – AI skills (15–20 minutes)
+The job description explicitly mentions AI skills.
+
+Prepare an honest answer about how you use AI in engineering.
+
+Possible examples:
+
+Understanding unfamiliar kernel code.
+
+Reviewing C code for potential bugs.
+
+Generating test cases.
+
+Analyzing logs and crash traces.
+
+Creating documentation.
+
+Exploring hardware/software integration concepts.
+
+Assisting with code reviews.
+
+A good interview answer:
+
+"I use AI as an engineering productivity tool for understanding unfamiliar code, exploring possible root causes, generating test scenarios and improving documentation. However, I validate suggestions through source-code analysis, compilation, testing and hardware-level verification. I don't blindly trust generated code, particularly for kernel drivers and hardware register operations."
+
+That demonstrates practical AI usage rather than just saying you use ChatGPT.
+
+13. Top 30 questions I would expect you to prepare
+If I were preparing you for the initial technical round, these are the questions I would put in front of you.
+
+Technical interview checklist
+
+0/30 completed
+
+C programming
+
+0/8
+
+What is the difference between array and pointer?
+
+Explain pointer to pointer with an example.
+
+What is volatile and why is it used in drivers?
+
+What is structure padding and alignment?
+
+Explain malloc, calloc and realloc.
+
+Implement memcpy().
+
+Implement bit set, clear and toggle operations.
+
+Explain little-endian and big-endian.
+
+Linux kernel and drivers
+
+0/7
+
+DMA and FPGA
+
+0/7
+
+PCIe and Ethernet
+
+0/7
+For every question, practice answering in 1–2 minutes. Don't try to memorize textbook definitions. Explain the concept, give an example and connect it to your projects.
+
+14. How to introduce yourself in the interview
+This is important. Your introduction should immediately establish that you are relevant to this position.
+
+Here is a draft based on your CV.
+
+Writing
+
+
+I am an Embedded Software Developer with over six years of experience in embedded Linux, Linux kernel driver development, BSP customization and FPGA-based systems.
+
+I started my career at iWave Systems, where I worked on Xilinx Zynq UltraScale+ platforms, developing V4L2 kernel drivers for video processing IPs, integrating hardware peripherals and customizing PetaLinux, U-Boot and Device Tree.
+
+I also worked on high-resolution video pipelines involving HDMI, DisplayPort, SDI and USB interfaces. I gained practical experience in AXI and DDR performance profiling using AXI Performance Monitor and hardware debugging using Vivado System ILA.
+
+Later, at Softnautics, I worked on low-latency 4K video streaming over 10G Ethernet and Wi-Fi, including H.264/H.265 encoding and decoding using GStreamer.
+
+Currently, at Capgemini, I work on the Linux graphics and display stack, including Weston, Wayland, DRM/KMS and X11, where I handle complex system-level debugging and integration issues.
+
+My core strengths are C programming, embedded Linux, hardware-software integration, device driver development and debugging.
+
+I am interested in this opportunity because it closely aligns with my experience in FPGA-based systems and low-level software development. I would also like to expand my expertise into FPGA IP software development, particularly DMA, Ethernet and PCIe-related technologies.
+
+Practice this until you can deliver it naturally in 90–120 seconds.
+
+15. Questions they may ask based on your CV
+These are especially important because interviewers often spend more time questioning what you have actually worked on than asking random textbook questions.
+
+Your CV statement
+
+Likely follow-up
+
+Developed V4L2 drivers
+
+Explain your driver architecture
+
+Worked on FPGA video IP
+
+How does software configure IP registers?
+
+AXI/DDR profiling
+
+Explain HP vs HPC interfaces
+
+10G Ethernet
+
+How did you achieve low latency?
+
+PetaLinux
+
+Explain your BSP build process
+
+Device Tree
+
+How does the kernel use it?
+
+System ILA
+
+How did you debug hardware signals?
+
+Dual GPU
+
+Explain DRM/KMS and Weston integration
+
+USB3 UVC
+
+Explain USB gadget architecture
+
+GStreamer
+
+Explain caps negotiation and buffer flow
+
+My strongest recommendation: Prepare the AXI/DDR, DMA and V4L2 projects in depth. They are the most natural bridges between your experience and this role.
+
+16. Your biggest knowledge gaps – be prepared
+I want to be realistic rather than simply tell you that you are ready.
+
+Based on your CV, these are areas where you should avoid overstating your experience:
+
+Area
+
+Your CV evidence
+
+Preparation needed
+
+Linux drivers
+
+Strong
+
+Refresh concepts
+
+FPGA integration
+
+Strong Xilinx exposure
+
+Learn Altera terminology
+
+DMA
+
+AXI/DDR profiling experience
+
+Study Linux DMA APIs
+
+Ethernet
+
+10G streaming experience
+
+Study MAC/PHY and network drivers
+
+PCIe
+
+Not explicitly mentioned
+
+Learn fundamentals and driver lifecycle
+
+C
+
+Listed as a skill
+
+Practice coding problems
+
+Kernel debugging
+
+Strong
+
+Prepare debugging examples
+
+If they ask:
+
+"Have you developed a PCIe driver?"
+
+Don't say yes if you haven't.
+
+A better answer:
+
+"I have not independently developed a PCIe Linux driver yet. However, I have experience developing platform and peripheral drivers, working with memory-mapped hardware registers, interrupts, DMA-related data paths and FPGA-based systems. I understand the PCIe driver lifecycle, including enumeration, BAR mapping, DMA configuration and MSI/MSI-X interrupts. I am confident that I can extend my existing driver development experience to PCIe."
+
+This is honest and demonstrates transferable expertise.
+
+17. Final revision sheet – remember these concepts
+Before entering the interview, make sure you can explain these without notes.
+
+C programming
+
+volatile – hardware register access.
+
+const – modification restrictions.
+
+static – storage duration and linkage.
+
+malloc – dynamic memory allocation.
+
+uint32_t – fixed-width unsigned integer.
+
+|, &, ^, ~ – bitwise operations.
+
+Linux drivers
+
+probe() – device initialization.
+
+remove() – device removal.
+
+ioremap() – MMIO mapping.
+
+readl() / writel() – register access.
+
+request_irq() – interrupt registration.
+
+Mutex / spinlock – synchronization.
+
+DMA
+
+Coherent vs streaming.
+
+Scatter-gather.
+
+Descriptor ring.
+
+DMA address vs CPU virtual address.
+
+Cache coherency.
+
+Interrupt completion.
+
+FPGA
+
+LUT, BRAM, DSP.
+
+PS vs PL.
+
+AXI4-Lite.
+
+AXI4.
+
+AXI4-Stream.
+
+Avalon-MM and Avalon-ST.
+
+PCIe
+
+Root Complex.
+
+Endpoint.
+
+Enumeration.
+
+BAR.
+
+MSI / MSI-X.
+
+TLP.
+
+Ethernet
+
+MAC vs PHY.
+
+TCP vs UDP.
+
+RX/TX descriptor rings.
+
+NAPI.
+
+MTU.
+
+Interrupt coalescing.
+
+Throughput vs latency.
+
+18. What I would NOT study in these 24 hours
+Don't waste precious preparation time on:
+
+Advanced RTL design from scratch.
+
+Verilog/SystemVerilog language in depth.
+
+Advanced FPGA timing closure.
+
+Advanced networking protocols.
+
+Complete PCIe protocol specification.
+
+Every Linux kernel subsystem.
+
+Advanced C++ templates.
+
+Complicated algorithmic problems unrelated to systems programming.
+
+Focus on concepts that help you explain hardware-software interaction.
+
+19. Let's make your preparation interactive
+I would suggest that we use the remaining preparation time as a structured interview training session.
+
+Rather than just reading answers, I can act as the Altera interviewer.
+
+Here is how I suggest we do it:
+
+Your mock interview training
+Based on the actual job description and your CV.
+
+Round 1 – C programming
+
+Pointers, bitwise operations, memory, coding problems and debugging.
+
+Round 2 – Linux kernel
+
+Device drivers, interrupts, Device Tree, synchronization and kernel APIs.
+
+Round 3 – DMA and FPGA
+
+AXI, DMA descriptors, DDR, hardware registers and FPGA IP integration.
+
+Round 4 – PCIe and Ethernet
+
+Driver lifecycle, BAR, interrupts, packet flow and performance.
+
+Round 5 – Project-based interview
+
+Questions specifically from your iWave, Softnautics and Capgemini experience.
+
+How I will evaluate you
+
+Technical correctness.
+
+Depth of understanding.
+
+Ability to write C code.
+
+Debugging approach.
+
+Communication and confidence.
+
+Whether your answer matches your actual experience.
+
+My recommendation: Start with C programming today.
+One question at a time. You answer without looking at notes. I'll correct your answer, explain the concept, show the expected interview answer and then ask a harder follow-up.
+
+Let's begin with this question:
+
+You are writing a Linux device driver for an FPGA IP. The FPGA exposes a 32-bit control register at address 0xA0000000.
+
+Bit 0 enables the IP, bit 1 starts the operation, and bit 2 indicates completion.
+
+How would you map this register in a Linux kernel driver?
+
+How would you set bit 0 without modifying the other bits?
+
+How would you start the operation?
+
+How would you check whether the operation is complete?
+
+This one question combines C, bitwise operations, MMIO and Linux driver knowledge – exactly the type of integration you should be comfortable discussing for this role.
+
+
+
