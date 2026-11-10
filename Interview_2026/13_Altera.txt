@@ -12,4 +12,26 @@ Write the interrupt handler. Interrupt registration sequence.
 Write gstreamer pipeline for streaming and display.
 Write a program in C which has x->main number, y->number to set the bit and z->bit index to set.
  
+Date: 09th November 2026
+HR: Ruby Bahera,
+Manager: Preetham
+
+Explain one complete project that you have worked on.
+Implement spin lock in the driver.
+Explain didfferent variants of spinlock in the driver.
+why spin_lock_irqsave() disables the interrupts.
+Will it disable all the interrupts? Or interrupts of that specific CPU core or only that particular interrupt?
+How it will come to know which interrupt to disable when it is the independent module.
+What is spin_lock_bh()
+why bottom half is used?
+Implement workqueues...
+
+How kernel and device tree gets loaded during boot?
+What changes that I have done at the u-boot?
+Whether we can access the device-tree nodes from the u-boot? Give example where we can use this?
+
+Gave multiple bus in the driver code and was told to solve it.
+1) copy_from_user() in the IRQ_handler.
+2) Complete code to Write into EL0 and EL1 bit of the register.
+3) *reg = 0x1 How it is different from writing using writel.
 
