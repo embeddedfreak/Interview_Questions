@@ -1,0 +1,11 @@
+HR:  Sukanya Mulangi,
+Date: 13th November 2026
+
+1) Draw complate architecture of Display stack.
+2) What is the major difference between mutex and semphore.
+3) Spin_lock implementation.
+4) Why Volatile is used.
+5) WAP to reverse a number
+6) WAP to strcat or strpy
+7) WAP for Binary search
+
