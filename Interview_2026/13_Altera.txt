@@ -35,3 +35,79 @@ Gave multiple bus in the driver code and was told to solve it.
 2) Complete code to Write into EL0 and EL1 bit of the register.
 3) *reg = 0x1 How it is different from writing using writel.
 
+Nov 13:
+Manager: Subhransu Sekhar Prusty
+and team 4 rounds
+
+Gave a program to find the mistakes:
+
+1)
+typedef struct {
+	int id;
+	char* name;
+}Node;
+
+void update_node(Node* n, const char* new_name)
+{
+	free(n->name);
+	n->name = malloc(strlen(new_name)+1);
+	strcpy(n->name, new_name);
+	if(n->id < 0) {
+		free(n->name);
+		printf("Invalid node %s\n", n->name);	
+	}
+}
+
+2) 
+int *buffer = malloc(100 * sizeof(int));
+.....
+.....
+
+buffer = realloc(buffer, 2000000000*sizeof(int));
+
+
+3)
+x -> Is a main number 32 bit
+y -> sub number
+z -> index
+
+you need to place y on x at z index.
+
+Example: x = 0xF;
+	y = 0x2;
+	z = 0x2;
+
+	output: (0000 1011) -> 0xb;
+
+write your own realloc function.
+Explain Arm architecture.
+Explain completely how PS and PL comunicate.
+AXI4, AXI lite, AXI stream.
+Spinlock
+What happens if we free memory without allocating it?
+Explain types of interrupts.
+
+What is key difference between Mutex, Spinlock and Semaphore.
+When to use each of this with example.
+What is the advantage of using semaphore over mutex?
+Why in Interrupt context we cannot use semapore or mutex?
+Why we can use spinlock?
+Describe how DMA works?
+If DMA discriptor is writen properly by CPU but still if we see corruption in the 
+data written to DDR or data is missing, how to debug it?
+Volatile keyword why its used, with example?
+How volatile usage will affect at assembly level of instructions?
+Why packed structure(without padding) causes some issue? in 32bit.
+How sync between CPU and DMA works?
+If we have only one core the if local interrupts are disabled is it not the problem?
+When CPU writes into the cache, then DMA might get stale or old data. How to solve it? FLush explain.
+What flush cache actually does.
+
+System level.
+Why virtual addresses are used at linux kernel level.
+Whether CPU and DMA can access DDR at the sametime?
+How will DMA knows CPU is not accessing the DDR now and How CPU know DMA is not accessing the DDR now?
+When network packets comes continwously say 1000 packets/sec. Only the first packet gets the Rx interrupt.
+Remaining packets wont trigger the interrupt. How this is handled?
+How to implement the debounce logic from the software, if we get interrupt contineously.
+
