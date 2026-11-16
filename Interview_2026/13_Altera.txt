@@ -111,3 +111,10 @@ When network packets comes continwously say 1000 packets/sec. Only the first pac
 Remaining packets wont trigger the interrupt. How this is handled?
 How to implement the debounce logic from the software, if we get interrupt contineously.
 
+
+Director Round:
+
+Tell me about yourself.
+And explained rules and regulations.
+Team and work intro..
+
